@@ -29,9 +29,12 @@
       "@payload-config": [
         "./src/payload.config.ts"
       ],
-      "node_modules/*": ["./node_modules/*"]
+      "node_modules/*": [
+        "./node_modules/*"
+      ]
     },
-    "target": "ES2017"
+    "target": "ES2017",
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",

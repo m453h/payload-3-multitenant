@@ -1,4 +1,4 @@
-import type { PayloadRequest } from "payload/dist/types";
+import type { PayloadRequest } from "payload";
 
 import { isSuperAdmin } from "../../../utilities/isSuperAdmin";
 
@@ -18,7 +18,7 @@ export const isSuperOrTenantAdmin = async (args: {
   }
 
   if (logs) {
-    const msg = `Finding tenant with host: '${req.headers.host}'`;
+    const msg = `Finding tenant with host: '${req.headers.get('host')}'`;
     payload.logger.info({ msg });
   }
 
@@ -27,7 +27,7 @@ export const isSuperOrTenantAdmin = async (args: {
     collection: "tenants",
     where: {
       "domains.domain": {
-        in: [req.headers.host],
+        in: [req.headers.get('host')],
       },
     },
     depth: 0,
@@ -38,7 +38,7 @@ export const isSuperOrTenantAdmin = async (args: {
   // if this tenant does not exist, deny access
   if (foundTenants.totalDocs === 0) {
     if (logs) {
-      const msg = `No tenant found for ${req.headers.host}`;
+      const msg = `No tenant found for ${req.headers.get('host')}`;
       payload.logger.info({ msg });
     }
 
@@ -51,9 +51,19 @@ export const isSuperOrTenantAdmin = async (args: {
   }
 
   // finally check if the user is an admin of this tenant
-  const tenantWithUser = user?.tenants?.find(
-    ({ tenant: userTenant }) => userTenant?.id === foundTenants.docs[0].id
-  );
+  const tenantWithUser = user?.tenants?.find(({ tenant: userTenant }) => {
+    // Check if userTenant is a Tenant object or a string/number
+    if (typeof userTenant === "object" && "id" in userTenant) {
+      return userTenant.id === foundTenants.docs[0].id;
+    }
+    
+    // Handle the case when userTenant is a string or number
+    return typeof userTenant === "string" 
+      ? userTenant === foundTenants.docs[0].id
+      : typeof userTenant === "number"
+      ? userTenant === foundTenants.docs[0].id
+      : false;
+  });
 
   if (tenantWithUser?.roles?.some((role) => role === "admin")) {
     if (logs) {
