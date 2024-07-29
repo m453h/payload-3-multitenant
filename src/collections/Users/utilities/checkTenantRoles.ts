@@ -1,9 +1,9 @@
-import type { User } from "../../../payload-types";
+import type { User } from "payload";
 
 export const checkTenantRoles = (
   allRoles: User["tenants"][0]["roles"] = [],
-  user: User = undefined,
-  tenant: User["tenants"][0]["tenant"] = undefined
+  user?: User,
+  tenant?: User["tenants"][0]["tenant"]
 ): boolean => {
   if (tenant) {
     const id = typeof tenant === "string" ? tenant : tenant?.id;

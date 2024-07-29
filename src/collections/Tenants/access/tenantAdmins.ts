@@ -1,6 +1,6 @@
 import type { Access } from "payload";
 
-import { isSuperAdmin } from "../../../utilities/isSuperAdmin";
+import { isSuperAdmin } from "@/utilities/isSuperAdmin";
 
 // the user must be an admin of the tenant being accessed
 export const tenantAdmins: Access = ({ req: { user } }) => {

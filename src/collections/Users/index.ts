@@ -1,7 +1,7 @@
 import type { CollectionConfig } from "payload";
 
-import { anyone } from "../../access/anyone";
-import { superAdminFieldAccess } from "../../access/superAdmins";
+import { anyone } from "@/access/anyone";
+import { superAdminFieldAccess } from "@/access/superAdmins";
 import { adminsAndSelf } from "./access/adminsAndSelf";
 import { tenantAdmins } from "./access/tenantAdmins";
 import { recordLastLoggedInTenant } from "./hooks/recordLastLoggedInTenant";

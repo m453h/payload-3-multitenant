@@ -1,9 +1,9 @@
 import type { Access } from "payload";
 
-import { isSuperAdmin } from "../../../utilities/isSuperAdmin";
-import { User } from "../../../payload-types";
+import { isSuperAdmin } from "@/utilities/isSuperAdmin";
 
-export const adminsAndSelf: Access<User> = async ({ req: { user } }) => {
+export const adminsAndSelf: Access = async ({ req: { user } }) => {
+  
   if (user) {
     const isSuper = isSuperAdmin(user);
 
