@@ -1,13 +1,28 @@
-import { superAdminFieldAccess } from '@/access/superAdmins'
-import type { CollectionConfig } from 'payload'
-import { tenantAdmins } from './Tenants/access/tenantAdmins'
+import type { CollectionConfig } from "payload";
+
+import { anyone } from "../../access/anyone";
+import { superAdminFieldAccess } from "../../access/superAdmins";
+import { adminsAndSelf } from "./access/adminsAndSelf";
+import { tenantAdmins } from "./access/tenantAdmins";
+import { recordLastLoggedInTenant } from "./hooks/recordLastLoggedInTenant";
+import { isSuperOrTenantAdmin } from "./utilities/isSuperOrTenantAdmin";
 
 export const Users: CollectionConfig = {
-  slug: 'users',
-  admin: {
-    useAsTitle: 'email',
-  },
+  slug: "users",
   auth: true,
+  admin: {
+    useAsTitle: "email",
+  },
+  access: {
+    read: adminsAndSelf,
+    create: anyone,
+    update: adminsAndSelf,
+    delete: adminsAndSelf,
+    admin: isSuperOrTenantAdmin,
+  },
+  hooks: {
+    afterLogin: [recordLastLoggedInTenant],
+  },
   fields: [
     {
       name: "firstName",
@@ -42,6 +57,11 @@ export const Users: CollectionConfig = {
       name: "tenants",
       type: "array",
       label: "Tenants",
+      access: {
+        create: tenantAdmins,
+        update: tenantAdmins,
+        read: tenantAdmins,
+      },
       fields: [
         {
           name: "tenant",
@@ -67,5 +87,19 @@ export const Users: CollectionConfig = {
         },
       ],
     },
+    {
+      name: "lastLoggedInTenant",
+      type: "relationship",
+      relationTo: "tenants",
+      index: true,
+      access: {
+        create: () => false,
+        read: tenantAdmins,
+        update: superAdminFieldAccess,
+      },
+      admin: {
+        position: "sidebar",
+      },
+    },
   ],
-}
+};

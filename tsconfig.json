@@ -28,7 +28,8 @@
       ],
       "@payload-config": [
         "./src/payload.config.ts"
-      ]
+      ],
+      "node_modules/*": ["./node_modules/*"]
     },
     "target": "ES2017"
   },

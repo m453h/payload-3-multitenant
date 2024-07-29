@@ -58,6 +58,7 @@ export interface User {
         id?: string | null;
       }[]
     | null;
+  lastLoggedInTenant?: (number | null) | Tenant;
   updatedAt: string;
   createdAt: string;
   email: string;
