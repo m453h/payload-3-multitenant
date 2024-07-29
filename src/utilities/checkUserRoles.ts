@@ -7,7 +7,7 @@ export const checkUserRoles = (
   if (user) {
     if (
       allRoles.some((role) => {
-        return user?.roles?.some((individualRole) => {
+        return user?.roles?.some((individualRole: string) => {
           return individualRole === role;
         });
       })

@@ -7,9 +7,9 @@ import { anyone } from "@/access/anyone";
 export const Tenants: CollectionConfig = {
   slug: "tenants",
   access: {
-    create: anyone,
-    read: tenantAdmins,
-    update: tenantAdmins,
+    create: superAdmins,
+    read: superAdmins,
+    update: superAdmins,
     delete: superAdmins,
   },
   admin: {
