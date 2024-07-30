@@ -1,6 +1,5 @@
 import type { CollectionConfig } from "payload";
-
-import { superAdmins } from "@/access/superAdmins";
+import { superAdmins } from "@/payload/access/superAdmins";
 
 export const Tenants: CollectionConfig = {
   slug: "tenants",
