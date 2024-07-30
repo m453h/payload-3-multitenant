@@ -9,6 +9,8 @@ import sharp from 'sharp'
 import { Users } from '@/payload/collections/Users'
 import { Media } from '@/payload/collections/Media'
 import { Tenants } from '@/payload/collections/Tenants'
+import { Pages } from '@/payload/collections/Pages'
+
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -17,7 +19,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Users, Media, Tenants],
+  collections: [Users, Media, Tenants, Pages],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
