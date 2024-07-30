@@ -1,6 +1,6 @@
 import { AuthenticationError, CollectionBeforeLoginHook } from 'payload'
 import { CustomError } from './customError';
-import { checkUserRoles } from "@/utilities/checkUserRoles";
+import { checkUserRoles } from "@/payload/utilities/checkUserRoles";
 
 
 export const checkDomain: CollectionBeforeLoginHook = async ({

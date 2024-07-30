@@ -1,6 +1,6 @@
 import type { FieldAccess } from "payload";
 
-import { checkUserRoles } from "@/utilities/checkUserRoles";
+import { checkUserRoles } from "@/payload/utilities/checkUserRoles";
 import { checkTenantRoles } from "../utilities/checkTenantRoles";
 import { User } from "payload";
 

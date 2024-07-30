@@ -1,6 +1,6 @@
 import type { Access, AccessResult } from "payload";
 
-import { isSuperAdmin } from "@/utilities/isSuperAdmin";
+import { isSuperAdmin } from "@/payload/utilities/isSuperAdmin";
 
 export const adminsAndSelf: any = async ({ req: { user } }) => {
   
