@@ -5,6 +5,7 @@ import { superAdminFieldAccess } from "@/access/superAdmins";
 import { adminsAndSelf } from "./access/adminsAndSelf";
 import { tenantAdmins } from "./access/tenantAdmins";
 import { recordLastLoggedInTenant } from "./hooks/recordLastLoggedInTenant";
+import { checkDomain } from "./hooks/checkDomain";
 import { isSuperOrTenantAdmin } from "./utilities/isSuperOrTenantAdmin";
 
 export const Users: CollectionConfig = {
@@ -22,6 +23,7 @@ export const Users: CollectionConfig = {
   },
   hooks: {
     afterLogin: [recordLastLoggedInTenant],
+    beforeLogin: [checkDomain]
   },
   fields: [
     {
