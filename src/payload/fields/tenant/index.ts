@@ -3,6 +3,7 @@ import type { Field } from "payload";
 import { superAdminFieldAccess } from "@/payload/access/superAdmins";
 import { isSuperAdmin } from "@/payload/utilities/isSuperAdmin";
 import { tenantAdminFieldAccess } from "./access/tenantAdmins";
+import { isTenant } from "@/payload/utilities/typeGuards";
 
 export const tenant: Field = {
   name: "tenant",
@@ -30,9 +31,11 @@ export const tenant: Field = {
         if ((await isSuperAdmin(req.user)) && data?.tenant) {
           return data.tenant;
         }
-
-        if (user?.lastLoggedInTenant?.id) {
-          return user.lastLoggedInTenant.id;
+  
+        if (isTenant(user?.lastLoggedInTenant)) {
+          if (user?.lastLoggedInTenant?.id) {
+            return user.lastLoggedInTenant.id;
+          }
         }
 
         return undefined;

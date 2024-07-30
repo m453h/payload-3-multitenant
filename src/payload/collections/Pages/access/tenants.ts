@@ -1,13 +1,19 @@
-import type { Access } from "payload/types";
+import type { Access, AccessArgs } from "payload";
 
-import { isSuperAdmin } from "../../../utilities/isSuperAdmin";
+import { isSuperAdmin } from "@/payload/utilities/isSuperAdmin";
+import { isTenant } from "@/payload/utilities/typeGuards";
 
-export const tenants: Access = ({ req: { user }, data }) =>
-  // individual documents
-  (data?.tenant?.id && user?.lastLoggedInTenant?.id === data.tenant.id) ||
-  (!user?.lastLoggedInTenant?.id && isSuperAdmin(user)) || {
-    // list of documents
-    tenant: {
-      equals: user?.lastLoggedInTenant?.id,
-    },
-  };
+export const tenants: Access = ({ req: { user }, data }: AccessArgs) => {
+  const lastLoggedInTenantId = isTenant(user?.lastLoggedInTenant)
+    ? user.lastLoggedInTenant.id
+    : user?.lastLoggedInTenant;
+
+  return (
+    (data?.tenant?.id && lastLoggedInTenantId === data.tenant.id) ||
+    (!lastLoggedInTenantId && isSuperAdmin(user)) || {
+      tenant: {
+        equals: lastLoggedInTenantId,
+      },
+    }
+  );
+};
