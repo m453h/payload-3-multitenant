@@ -1,6 +1,7 @@
 // storage-adapter-import-placeholder
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { seoPlugin } from '@payloadcms/plugin-seo'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
@@ -33,5 +34,9 @@ export default buildConfig({
   sharp,
   plugins: [
     // storage-adapter-placeholder
+    seoPlugin({
+      
+     
+    })
   ],
 })

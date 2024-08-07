@@ -5,6 +5,18 @@ import { loggedIn } from "./access/loggedIn";
 import { tenantAdmins } from "./access/tenantAdmins";
 import { tenants } from "./access/tenants";
 import formatSlug from "./hooks/formatSlug";
+import {
+  MetaDescriptionField,
+  MetaImageField,
+  MetaTitleField,
+  OverviewField,
+  PreviewField,
+} from '@payloadcms/plugin-seo/fields';
+
+import {
+  lexicalEditor
+} from '@payloadcms/richtext-lexical'
+
 
 export const Pages: CollectionConfig = {
   slug: "pages",
@@ -37,5 +49,48 @@ export const Pages: CollectionConfig = {
       },
     },
     tenant,
+    {
+      type: 'tabs',
+      tabs: [
+        {
+          fields: [
+            {
+              name: 'content',
+              type: 'richText',
+              // Pass the Lexical editor here and override base settings as necessary
+              editor: lexicalEditor({})
+            }
+          ],
+          label: 'Content',
+        },
+        {
+          name: 'meta',
+          label: 'SEO',
+          fields: [
+            OverviewField({
+              titlePath: 'meta.title',
+              descriptionPath: 'meta.description',
+              imagePath: 'meta.image',
+            }),
+            MetaTitleField({
+              hasGenerateFn: true,
+            }),
+            MetaImageField({
+              relationTo: 'media',
+            }),
+
+            MetaDescriptionField({}),
+            PreviewField({
+              // if the `generateUrl` function is configured
+              hasGenerateFn: true,
+
+              // field paths to match the target field for data
+              titlePath: 'meta.title',
+              descriptionPath: 'meta.description',
+            }),
+          ],
+        },
+      ],
+    },
   ],
 };

@@ -115,6 +115,26 @@ export interface Page {
   title: string;
   slug?: string | null;
   tenant?: (number | null) | Tenant;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  meta?: {
+    title?: string | null;
+    image?: number | Media | null;
+    description?: string | null;
+  };
   updatedAt: string;
   createdAt: string;
 }
