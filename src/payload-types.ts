@@ -21,7 +21,9 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  globals: {};
+  globals: {
+    'settings-site': SettingsSite;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -463,6 +465,111 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "settings-site".
+ */
+export interface SettingsSite {
+  id: number;
+  title: string;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  primaryLogo: number | Media;
+  secondaryLogo?: number | Media | null;
+  primaryNavigation?: {
+    menus?:
+      | {
+          label: string;
+          linkType?: ('custom' | 'internal') | null;
+          doc?: {
+            relationTo: 'pages';
+            value: number | Page;
+          } | null;
+          url?: string | null;
+          href: string;
+          id?: string | null;
+        }[]
+      | null;
+    connect?: ('Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack') | null;
+  };
+  secondaryNavigation?: {
+    menus?:
+      | {
+          label: string;
+          linkType?: ('custom' | 'internal') | null;
+          doc?: {
+            relationTo: 'pages';
+            value: number | Page;
+          } | null;
+          url?: string | null;
+          href: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  connect: {
+    title: string;
+    links?:
+      | {
+          platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack';
+          url: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  newsletter: {
+    title: string;
+    embedCode: string;
+  };
+  initiative: {
+    title: string;
+    description: {
+      root: {
+        type: string;
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
+    partners?:
+      | {
+          name: string;
+          logo: number | Media;
+          label: string;
+          linkType?: ('custom' | 'internal') | null;
+          doc?: {
+            relationTo: 'pages';
+            value: number | Page;
+          } | null;
+          url?: string | null;
+          href: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -6,6 +6,7 @@ interface RichTextInput {
   required?: boolean;
   label?: string;
   defaultValue?: any;
+  localized?: boolean;
 }
 
 interface RichTextOutput {
@@ -22,6 +23,6 @@ export default function richText(input: RichTextInput): RichTextOutput {
     type: 'richText',
     required: input.required ?? false,
     label: input.label ?? 'Content',
-    editor: lexicalEditor({})
+    editor: lexicalEditor({}),
   };
 }

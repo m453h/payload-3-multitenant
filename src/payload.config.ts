@@ -3,7 +3,7 @@ import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { seoPlugin } from '@payloadcms/plugin-seo'
 import path from 'path'
-import { buildConfig } from 'payload'
+import { buildConfig, GlobalConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
@@ -11,6 +11,8 @@ import { Users } from '@/payload/collections/Users'
 import { Media } from '@/payload/collections/Media'
 import { Tenants } from '@/payload/collections/Tenants'
 import { Pages } from '@/payload/collections/Pages'
+import Site from '@/payload/globals/Site';
+
 
 
 const filename = fileURLToPath(import.meta.url)
@@ -20,6 +22,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
+  globals: [Site] as GlobalConfig[],
   collections: [Users, Media, Tenants, Pages],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

@@ -30,7 +30,7 @@ const validateSteps: Validate = (value = [], args) => {
 const ExistingRobots: Block = {
   slug: "existing-robots-txt",
   labels: { singular: "Existing Robots Txt", plural: "Existing Robots Txt" },
-  imageURL: "/images/cms/blocks/existingRobots.png",
+  imageURL: "/images/cms/blocks/roboshield/existingRobots.png",
   imageAltText: "Fetch existing robots.txt",
   fields: [
     {
@@ -89,7 +89,7 @@ const ExistingRobots: Block = {
 const Delays: Block = {
   slug: "delays",
   labels: { singular: "Delays", plural: "Delays" },
-  imageURL: "/images/cms/blocks/delays.png",
+  imageURL: "/images/cms/blocks/roboshield/delays.png",
   imageAltText: "Set bot delays for the robots you want to generate.",
   fields: [
     {
@@ -174,7 +174,7 @@ const Delays: Block = {
 const Paths: Block = {
   slug: "paths",
   labels: { singular: "Paths", plural: "Paths" },
-  imageURL: "/images/cms/blocks/paths.png",
+  imageURL: "/images/cms/blocks/roboshield/paths.png",
   imageAltText:
     "Set disallowed and allowed paths for the robots you want to generate.",
   fields: [
@@ -261,7 +261,7 @@ const Paths: Block = {
 const BlockBots: Block = {
   slug: "block-bots",
   labels: { singular: "Block Bots", plural: "Block Bots" },
-  imageURL: "/images/cms/blocks/blockBots.png",
+  imageURL: "/images/cms/blocks/roboshield/blockBots.png",
   imageAltText: "Select bots you want to block from crawling your website.",
   fields: [
     {
@@ -327,7 +327,7 @@ const BlockBots: Block = {
 const SiteMaps: Block = {
   slug: "site-maps",
   labels: { singular: "Site Maps", plural: "Site Maps" },
-  imageURL: "/images/cms/blocks/siteMaps.png",
+  imageURL: "/images/cms/blocks/roboshield/siteMaps.png",
   imageAltText: "Add sitemap URLs to your robots.txt file.",
   fields: [
     {
@@ -358,7 +358,7 @@ const SiteMaps: Block = {
 const Finish: Block = {
   slug: "finish",
   labels: { singular: "Finish", plural: "Finish" },
-  imageURL: "/images/cms/blocks/finish.png",
+  imageURL: "/images/cms/blocks/roboshield/finish.png",
   imageAltText: "Completes robots generation process",
   fields: [
     {
@@ -435,7 +435,7 @@ const Actions: Field = {
 const RobotsTxtGenerator: Block = {
   slug: "robots-txt-generator",
   labels: { singular: "robots.txt Generator", plural: "robots.txt Generator" },
-  imageURL: "/images/cms/blocks/robotsGenerator.png",
+  imageURL: "/images/cms/blocks/roboshield/robotsGenerator.png",
   imageAltText: "Set action labels and content for robots.txt generator.",
   fields: [
     {
