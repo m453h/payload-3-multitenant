@@ -13,9 +13,13 @@ import {
   PreviewField,
 } from '@payloadcms/plugin-seo/fields';
 
-import {
-  lexicalEditor
-} from '@payloadcms/richtext-lexical'
+
+import { PageHeader } from "@/payload/blocks/roboshield/PageHeader";
+import { SiteHero } from "@/payload/blocks/roboshield/SiteHero";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import { Statistics } from "@/payload/blocks/roboshield/Statistics";
+import { Content } from "@/payload/blocks/roboshield/Content";
+import RobotsTxtGenerator from "@/payload/blocks/roboshield/RobotsTxtGenerator";
 
 
 export const Pages: CollectionConfig = {
@@ -59,7 +63,16 @@ export const Pages: CollectionConfig = {
               type: 'richText',
               // Pass the Lexical editor here and override base settings as necessary
               editor: lexicalEditor({})
-            }
+            },
+            {
+              name: "blocks",
+              type: "blocks",
+              blocks: [PageHeader, SiteHero, Content, Statistics, RobotsTxtGenerator],
+              localized: true,
+              admin: {
+                initCollapsed: true,
+              },
+            },
           ],
           label: 'Content',
         },

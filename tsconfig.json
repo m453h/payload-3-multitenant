@@ -29,8 +29,14 @@
       "@payload-config": [
         "./src/payload.config.ts"
       ],
+      "@payload-validations":[
+        "./node_modules/payload/dist/fields/validations/*"
+      ],
       "node_modules/*": [
         "./node_modules/*"
+      ],
+      "@/custom-fields/*": [
+        "./src/payload/fields/*"
       ],
     },
     "target": "ES2017",
