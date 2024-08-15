@@ -15,7 +15,7 @@ export const Content: Block = {
     {
       type: "blocks",
       name: "content",
-      blocks: [RichText, MediaBlock],
+      blocks: [RichText, MediaBlock, ExternalEmbed],
     },
   ],
 };

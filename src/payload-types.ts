@@ -173,6 +173,17 @@ export interface Page {
                       blockName?: string | null;
                       blockType: 'mediaBlock';
                     }
+                  | {
+                      externalEmbedFields?: {
+                        embedType?: ('url' | 'code') | null;
+                        url?: string | null;
+                        caption?: string | null;
+                        code?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'externalEmbed';
+                    }
                 )[]
               | null;
             id?: string | null;
