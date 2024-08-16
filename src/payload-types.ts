@@ -19,7 +19,7 @@ export interface Config {
     'payload-migrations': PayloadMigration;
   };
   db: {
-    defaultIDType: number;
+    defaultIDType: string;
   };
   globals: {
     'settings-site': SettingsSite;
@@ -52,18 +52,18 @@ export interface UserAuthOperations {
  * via the `definition` "users".
  */
 export interface User {
-  id: number;
+  id: string;
   firstName?: string | null;
   lastName?: string | null;
   roles: ('super-admin' | 'user')[];
   tenants?:
     | {
-        tenant: number | Tenant;
+        tenant: string | Tenant;
         roles: ('admin' | 'user')[];
         id?: string | null;
       }[]
     | null;
-  lastLoggedInTenant?: (number | null) | Tenant;
+  lastLoggedInTenant?: (string | null) | Tenant;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -80,7 +80,7 @@ export interface User {
  * via the `definition` "tenants".
  */
 export interface Tenant {
-  id: number;
+  id: string;
   name: string;
   domains?:
     | {
@@ -96,7 +96,7 @@ export interface Tenant {
  * via the `definition` "media".
  */
 export interface Media {
-  id: number;
+  id: string;
   alt: string;
   updatedAt: string;
   createdAt: string;
@@ -115,10 +115,10 @@ export interface Media {
  * via the `definition` "pages".
  */
 export interface Page {
-  id: number;
+  id: string;
   title: string;
   slug?: string | null;
-  tenant?: (number | null) | Tenant;
+  tenant?: (string | null) | Tenant;
   content?: {
     root: {
       type: string;
@@ -168,7 +168,7 @@ export interface Page {
                       blockType: 'richtext';
                     }
                   | {
-                      image: number | Media;
+                      image: string | Media;
                       id?: string | null;
                       blockName?: string | null;
                       blockType: 'mediaBlock';
@@ -211,7 +211,7 @@ export interface Page {
                     };
                     [k: string]: unknown;
                   };
-                  icon?: number | Media | null;
+                  icon?: string | Media | null;
                   id?: string | null;
                 }[]
               | null;
@@ -405,7 +405,7 @@ export interface Page {
     | null;
   meta?: {
     title?: string | null;
-    image?: number | Media | null;
+    image?: string | Media | null;
     description?: string | null;
   };
   updatedAt: string;
@@ -448,10 +448,10 @@ export interface SiteHero {
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-  id: number;
+  id: string;
   user: {
     relationTo: 'users';
-    value: number | User;
+    value: string | User;
   };
   key?: string | null;
   value?:
@@ -471,7 +471,7 @@ export interface PayloadPreference {
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-  id: number;
+  id: string;
   name?: string | null;
   batch?: number | null;
   updatedAt: string;
@@ -482,7 +482,7 @@ export interface PayloadMigration {
  * via the `definition` "settings-site".
  */
 export interface SettingsSite {
-  id: number;
+  id: string;
   title: string;
   description: {
     root: {
@@ -499,8 +499,8 @@ export interface SettingsSite {
     };
     [k: string]: unknown;
   };
-  primaryLogo: number | Media;
-  secondaryLogo?: number | Media | null;
+  primaryLogo: string | Media;
+  secondaryLogo?: string | Media | null;
   primaryNavigation?: {
     menus?:
       | {
@@ -508,7 +508,7 @@ export interface SettingsSite {
           linkType?: ('custom' | 'internal') | null;
           doc?: {
             relationTo: 'pages';
-            value: number | Page;
+            value: string | Page;
           } | null;
           url?: string | null;
           href: string;
@@ -524,7 +524,7 @@ export interface SettingsSite {
           linkType?: ('custom' | 'internal') | null;
           doc?: {
             relationTo: 'pages';
-            value: number | Page;
+            value: string | Page;
           } | null;
           url?: string | null;
           href: string;
@@ -566,12 +566,12 @@ export interface SettingsSite {
     partners?:
       | {
           name: string;
-          logo: number | Media;
+          logo: string | Media;
           label: string;
           linkType?: ('custom' | 'internal') | null;
           doc?: {
             relationTo: 'pages';
-            value: number | Page;
+            value: string | Page;
           } | null;
           url?: string | null;
           href: string;
