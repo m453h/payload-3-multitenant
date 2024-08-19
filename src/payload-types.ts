@@ -26,6 +26,7 @@ export interface Config {
     posts: Post;
     tag: Tag;
     teams: Team;
+    RoboshieldPages: RoboshieldPage;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -1308,6 +1309,339 @@ export interface Office {
     | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RoboshieldPages".
+ */
+export interface RoboshieldPage {
+  id: string;
+  title: string;
+  slug?: string | null;
+  tenant?: (string | null) | Tenant;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  blocks?:
+    | (
+        | {
+            title: string;
+            subtitle: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'page-header';
+          }
+        | SiteHero
+        | {
+            content?:
+              | (
+                  | {
+                      content: {
+                        root: {
+                          type: string;
+                          children: {
+                            type: string;
+                            version: number;
+                            [k: string]: unknown;
+                          }[];
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'richtext';
+                    }
+                  | {
+                      image: string | Media;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'mediaBlock';
+                    }
+                  | {
+                      externalEmbedFields?: {
+                        embedType?: ('url' | 'code') | null;
+                        url?: string | null;
+                        caption?: string | null;
+                        code?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'externalEmbed';
+                    }
+                )[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'content';
+          }
+        | {
+            title: string;
+            statistics?:
+              | {
+                  name: string;
+                  value: string;
+                  description: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  icon?: string | Media | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'statistics';
+          }
+        | {
+            steps?:
+              | (
+                  | {
+                      title: string;
+                      hint?: {
+                        root: {
+                          type: string;
+                          children: {
+                            type: string;
+                            version: number;
+                            [k: string]: unknown;
+                          }[];
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      } | null;
+                      defaultFetchExistingRobots?: boolean | null;
+                      existingRobotsTxt: string;
+                      placeholder: string;
+                      urlValidationError: string;
+                      fetch: string;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'existing-robots-txt';
+                    }
+                  | {
+                      title: string;
+                      hint?: {
+                        root: {
+                          type: string;
+                          children: {
+                            type: string;
+                            version: number;
+                            [k: string]: unknown;
+                          }[];
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      } | null;
+                      crawlDelay: {
+                        label: string;
+                        title: string;
+                      };
+                      cacheDelay: {
+                        label: string;
+                        title: string;
+                      };
+                      visitTime: {
+                        label: string;
+                        title: string;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'delays';
+                    }
+                  | {
+                      title: string;
+                      hint?: {
+                        root: {
+                          type: string;
+                          children: {
+                            type: string;
+                            version: number;
+                            [k: string]: unknown;
+                          }[];
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      } | null;
+                      selectPlatform: {
+                        label: string;
+                        title: string;
+                      };
+                      disallowedPaths: {
+                        label: string;
+                        title: string;
+                      };
+                      allowedPaths: {
+                        label: string;
+                        title: string;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'paths';
+                    }
+                  | {
+                      title: string;
+                      hint?: {
+                        root: {
+                          type: string;
+                          children: {
+                            type: string;
+                            version: number;
+                            [k: string]: unknown;
+                          }[];
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      } | null;
+                      aiWebCrawlers: {
+                        label: string;
+                        title: string;
+                      };
+                      searchEngineCrawlers: {
+                        label: string;
+                        title: string;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'block-bots';
+                    }
+                  | {
+                      title: string;
+                      hint?: {
+                        root: {
+                          type: string;
+                          children: {
+                            type: string;
+                            version: number;
+                            [k: string]: unknown;
+                          }[];
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      } | null;
+                      placeholder: string;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'site-maps';
+                    }
+                  | {
+                      title: string;
+                      hint?: {
+                        root: {
+                          type: string;
+                          children: {
+                            type: string;
+                            version: number;
+                            [k: string]: unknown;
+                          }[];
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      } | null;
+                      placeholder: string;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'finish';
+                    }
+                )[]
+              | null;
+            actions: {
+              showRobotsTxt: string;
+              continue: string;
+              back: string;
+              reset: string;
+              download: string;
+              copyToClipboard: string;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'robots-txt-generator';
+          }
+      )[]
+    | null;
+  meta?: {
+    title?: string | null;
+    image?: string | Media | null;
+    description?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SiteHero".
+ */
+export interface SiteHero {
+  heroHeaders?:
+    | {
+        headingType?: ('largeHeading' | 'subHeading' | 'rotatingText') | null;
+        title?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  heroDescription: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  heroCallToAction?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'page-hero';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -6,11 +6,11 @@ import path from 'path'
 import { buildConfig, GlobalConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
-
 import { Users } from '@/payload/collections/Users'
 import { Media } from '@/payload/collections/Media'
 import { Tenants } from '@/payload/collections/Tenants'
 import  Pages  from '@/payload/collections/codeforafrica/Pages'
+import { Pages as RoboShieldPages } from '@/payload/collections/Pages'
 import Site from '@/payload/globals/Site';
 import Authors from './payload/collections/codeforafrica/Authors'
 import GuidingPrinciples from '@/payload/collections/codeforafrica/GuidingPrinciples'
@@ -51,6 +51,7 @@ export default buildConfig({
     Posts,
     Tags,
     Teams,
+    RoboShieldPages
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
