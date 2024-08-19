@@ -1,6 +1,7 @@
 import richText from "@/payload/fields/RichText";
+import { Block } from "payload";
 
-const OurMission = {
+const OurMission: Block = {
   slug: "our-mission",
   imageURL: "/images/cms/blocks/codeforafrica/our_mission.jpg",
   imageAltText: "Our mission",

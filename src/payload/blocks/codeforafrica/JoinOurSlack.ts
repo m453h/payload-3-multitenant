@@ -1,6 +1,7 @@
 import linkGroup from "@/payload/fields/links/linkGroup";
+import { Block } from "payload";
 
-const JoinOurSlack = {
+const JoinOurSlack: Block = {
   slug: "join-our-slack",
   imageURL: "/images/cms/blocks/codeforafrica/join_our_slack.jpg",
   imageAltText: "Display link to join our Slack community",

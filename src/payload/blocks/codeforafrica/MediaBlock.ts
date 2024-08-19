@@ -1,6 +1,7 @@
 import blockFields from "@/payload/fields/blockFields";
+import { Block } from "payload";
 
-const MediaBlock = {
+const MediaBlock: Block = {
   slug: "mediaBlock",
   fields: [
     blockFields({

@@ -1,4 +1,6 @@
-const OurOffices = {
+import { Block } from "payload";
+
+const OurOffices: Block = {
   slug: "our-offices",
   imageURL: "/images/cms/blocks/codeforafrica/our_offices.png",
   imageAltText: "Our offices",

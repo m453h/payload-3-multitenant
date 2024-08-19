@@ -1,7 +1,8 @@
 import impacts from "@/payload/fields/impacts";
 import linkGroup from "@/payload/fields/links/linkGroup";
+import { Block } from "payload";
 
-const GetInvolved = {
+const GetInvolved: Block = {
   slug: "get-involved",
   imageURL: "/images/cms/blocks/codeforafrica/get_involved.jpg",
   imageAltText: "Get Involved",

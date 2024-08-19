@@ -10,7 +10,7 @@ import sharp from 'sharp'
 import { Users } from '@/payload/collections/Users'
 import { Media } from '@/payload/collections/Media'
 import { Tenants } from '@/payload/collections/Tenants'
-import { Pages } from '@/payload/collections/Pages'
+import  Pages  from '@/payload/collections/codeforafrica/Pages'
 import Site from '@/payload/globals/Site';
 import Authors from './payload/collections/codeforafrica/Authors'
 import GuidingPrinciples from '@/payload/collections/codeforafrica/GuidingPrinciples'

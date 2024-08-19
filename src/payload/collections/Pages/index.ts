@@ -23,7 +23,7 @@ import RobotsTxtGenerator from "@/payload/blocks/roboshield/RobotsTxtGenerator";
 
 
 export const Pages: CollectionConfig = {
-  slug: "pages",
+  slug: "cfa_pages",
   admin: {
     useAsTitle: "title",
     defaultColumns: ["title", "slug", "updatedAt"],

@@ -1,6 +1,7 @@
 import content from "@/payload/fields/content";
+import { Block } from "payload";
 
-const LongForm = {
+const LongForm: Block = {
   slug: "longform",
   imageURL: "/images/cms/blocks/codeforafrica/longform.jpg",
   imageAltText: "Our team.",

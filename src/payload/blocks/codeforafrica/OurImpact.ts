@@ -1,6 +1,7 @@
 import impacts from "@/payload/fields/impacts";
+import { Block } from "payload";
 
-const OurImpact = {
+const OurImpact: Block = {
   slug: "our-impact",
   imageURL: "/images/cms/blocks/codeforafrica/our_impact.jpg",
   imageAltText: "Show our impact.",

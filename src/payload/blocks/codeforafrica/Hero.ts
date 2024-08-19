@@ -1,7 +1,8 @@
 import image from "@/payload/fields/image";
 import richText from "@/payload/fields/RichText";
+import { Block } from "payload";
 
-const Hero = {
+const Hero: Block = {
   slug: "hero",
   imageURL: "/images/cms/blocks/codeforafrica/hero.jpg",
   imageAltText: "Used in homepage.",

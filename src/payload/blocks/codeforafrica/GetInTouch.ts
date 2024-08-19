@@ -1,6 +1,7 @@
 import linkGroup from "@/payload/fields/links/linkGroup";
+import { Block } from "payload";
 
-const GetInTouch = {
+const GetInTouch: Block = {
   slug: "get-in-touch",
   imageURL: "/images/cms/blocks/codeforafrica/get_in_touch.jpg",
   imageAltText: "Display Get In Touch Call to Action",

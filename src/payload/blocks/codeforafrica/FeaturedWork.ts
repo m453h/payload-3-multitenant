@@ -1,6 +1,7 @@
 import tags from "@/payload/fields/tags";
+import { Block } from "payload";
 
-const FeaturedWork = {
+const FeaturedWork: Block = {
   slug: "featured-work",
   imageURL: "/images/cms/blocks/codeforafrica/our-work-showcase.png",
   imageAltText: "Featured Work",

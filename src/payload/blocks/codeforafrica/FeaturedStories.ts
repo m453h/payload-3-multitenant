@@ -1,6 +1,7 @@
 import linkGroup from "@/payload/fields/links/linkGroup";
+import { Block } from "payload";
 
-const FeaturedStories = {
+const FeaturedStories: Block = {
   slug: "featured-stories",
   imageURL: "/images/cms/blocks/codeforafrica/featured_stories.jpg",
   imageAltText: "Featured Stories",

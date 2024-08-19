@@ -1,3 +1,5 @@
+import { Block } from "payload";
+
 const primaryTags = [
   {
     label: "Stories",
@@ -9,7 +11,7 @@ const primaryTags = [
   },
 ];
 
-const Posts = {
+const Posts: Block = {
   // `posts` slug is already used by Post collection
   slug: "post-list",
   imageURL: "/images/cms/blocks/codeforafrica/posts.jpg",

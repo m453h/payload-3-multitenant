@@ -1,6 +1,7 @@
 import blockFields from "@/payload/fields/blockFields";
+import { Block, Field } from "payload";
 
-const ExternalEmbed = {
+const ExternalEmbed: Block = {
   slug: "external-embed",
   fields: [
     blockFields({

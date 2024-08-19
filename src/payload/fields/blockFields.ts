@@ -23,6 +23,6 @@ const blockFields = ({ name, fields, overrides }: BlockFieldsProps) =>
       fields,
     },
     overrides,
-  );
+  ) as Field;
 
 export default blockFields;
