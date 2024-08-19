@@ -20,7 +20,7 @@ const Tags: CollectionConfig = {
       required: true,
       localized: true,
     },
-    //slug({ fieldToUse: "name" }),
+    slug({ fieldToUse: "name" }),
   ],
 };
 

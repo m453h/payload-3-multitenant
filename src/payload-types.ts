@@ -1237,6 +1237,7 @@ export interface Project {
 export interface Tag {
   id: string;
   name: string;
+  slug?: string | null;
   updatedAt: string;
   createdAt: string;
 }
