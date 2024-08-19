@@ -1,5 +1,5 @@
 import { allCountries } from "@/payload/lib/data/json/countries";
-import type { CollectionConfig } from "payload";
+import type { CollectionConfig, Option } from "payload";
 
 const Offices: CollectionConfig = {
   slug: "offices",
@@ -35,7 +35,7 @@ const Offices: CollectionConfig = {
     {
       name: "country",
       type: "select",
-      options: allCountries,
+      options: allCountries as Option[],
     },
   ],
 };

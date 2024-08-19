@@ -21,10 +21,9 @@ import Posts from "@/payload/blocks/codeforafrica/Posts";
 import fullTitle from "@/payload/fields/fullTitle";
 import slug from "@/payload/fields/slug";
 import formatDraftUrl from "@/payload/utilities/formatDraftUrl";
-import type { CollectionConfig } from "payload";
 
-const Pages: CollectionConfig = {
-  slug: "pages_cfa",
+const Pages = {
+  slug: "pages",
   access: {
     read: () => true,
     create: () => true,

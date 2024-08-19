@@ -1,3 +1,5 @@
+import { Option } from "payload";
+
 export const countries = [
   {
     region: "Asia",

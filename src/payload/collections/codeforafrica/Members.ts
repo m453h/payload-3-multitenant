@@ -4,7 +4,7 @@ import richText from "@/payload/fields/RichText";
 import slug from "@/payload/fields/slug";
 import socialLinks from "@/payload/fields/socialLinks";
 import nestCollectionUnderPage from "@/payload/utilities/nestCollectionUnderPage";
-import type { CollectionConfig } from "payload";
+import type { CollectionConfig, Option } from "payload";
 
 const Members: CollectionConfig = {
   slug: "members",
@@ -41,11 +41,11 @@ const Members: CollectionConfig = {
       required: true,
       localized: true,
     },
-    //slug({ fieldToUse: "name" }),
+    slug({ fieldToUse: "name" }),
     {
       name: "country",
       type: "select",
-      options: allCountries,
+      options: allCountries as Option[],
     },
     richText({
       name: "description",

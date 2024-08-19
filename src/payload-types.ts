@@ -811,6 +811,7 @@ export interface Member {
   image: string | Media;
   name: string;
   title: string;
+  slug?: string | null;
   country?:
     | (
         | 'AFG'
