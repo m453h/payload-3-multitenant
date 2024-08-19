@@ -32,7 +32,7 @@ const Pages: CollectionConfig = {
   },
   admin: {
     defaultColumns: ["fullTitle", "updatedAt"],
-    group: "Publication",
+    group: "Publications",
     //preview: (doc, options) => formatDraftUrl("pages", doc, options),
     useAsTitle: "title",
   },

@@ -9,7 +9,7 @@ const Authors: CollectionConfig = {
   admin: {
     defaultColumns: ["fullName", "updatedAt"],
     enableRichTextLink: false,
-    group: "Publication",
+    group: "Publications",
     useAsTitle: "fullName",
   },
   fields: [

@@ -22,7 +22,7 @@ const Posts: CollectionConfig = {
   admin: {
     defaultColumns: ["title", "authors", "publishedOn"],
     description: "Stories and Opportunities",
-    group: "Publication",
+    group: "Publications",
     useAsTitle: "title",
     listSearchableFields: ["content", "excerpt"],
   },

@@ -1,4 +1,6 @@
-const PostTab = {
+import { Tab } from "payload";
+
+const PostTab: Tab = {
   label: "Post",
   fields: [
     {

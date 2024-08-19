@@ -6,7 +6,7 @@ const Tags: CollectionConfig = {
   admin: {
     defaultColumns: ["name", "updatedAt"],
     enableRichTextLink: false,
-    group: "Publication",
+    group: "Publications",
     useAsTitle: "name",
   },
   access: {
