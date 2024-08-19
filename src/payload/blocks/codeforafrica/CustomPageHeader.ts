@@ -1,4 +1,5 @@
 import image from "@/payload/fields/image";
+import { Block } from "payload";
 
 const CustomPageHeader: Block  = {
   slug: "custom-page-header",

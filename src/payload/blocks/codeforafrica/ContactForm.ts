@@ -1,3 +1,5 @@
+import { Block } from "payload";
+
 const ContactForm: Block = {
   slug: "contact-form",
   imageURL: "/images/cms/blocks/codeforafrica/contact_form.jpg",
