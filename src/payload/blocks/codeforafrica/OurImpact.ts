@@ -1,8 +1,8 @@
-import impacts from "../fields/impacts";
+import impacts from "@/payload/fields/impacts";
 
 const OurImpact = {
   slug: "our-impact",
-  imageURL: "/images/cms/blocks/our_impact.jpg",
+  imageURL: "/images/cms/blocks/codeforafrica/our_impact.jpg",
   imageAltText: "Show our impact.",
   fields: [
     {

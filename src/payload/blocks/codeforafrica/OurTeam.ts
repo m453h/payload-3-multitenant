@@ -1,6 +1,6 @@
 const OurTeam = {
   slug: "our-team",
-  imageURL: "/images/cms/blocks/team.png",
+  imageURL: "/images/cms/blocks/codeforafrica/team.png",
   imageAltText: "Our team.",
   labels: {
     singular: {

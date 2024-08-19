@@ -1,6 +1,6 @@
 const PageHeader = {
   slug: "page-header",
-  imageURL: "/images/cms/blocks/page_header.jpg",
+  imageURL: "/images/cms/blocks/codeforafrica/page_header.jpg",
   imageAltText: "Header for content pages such as contact page.",
   fields: [
     {

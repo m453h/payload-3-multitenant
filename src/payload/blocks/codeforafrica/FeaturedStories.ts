@@ -1,8 +1,8 @@
-import linkGroup from "../fields/links/linkGroup";
+import linkGroup from "@/payload/fields/links/linkGroup";
 
 const FeaturedStories = {
   slug: "featured-stories",
-  imageURL: "/images/cms/blocks/featured_stories.jpg",
+  imageURL: "/images/cms/blocks/codeforafrica/featured_stories.jpg",
   imageAltText: "Featured Stories",
   labels: {
     singular: {

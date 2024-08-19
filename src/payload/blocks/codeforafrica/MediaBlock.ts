@@ -1,4 +1,4 @@
-import blockFields from "../fields/blockFields";
+import blockFields from "@/payload/fields/blockFields";
 
 const MediaBlock = {
   slug: "mediaBlock",

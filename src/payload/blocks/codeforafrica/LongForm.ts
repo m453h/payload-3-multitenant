@@ -1,8 +1,8 @@
-import content from "../fields/content";
+import content from "@/payload/fields/content";
 
 const LongForm = {
   slug: "longform",
-  imageURL: "/images/cms/blocks/longform.jpg",
+  imageURL: "/images/cms/blocks/codeforafrica/longform.jpg",
   imageAltText: "Our team.",
   labels: {
     singular: {

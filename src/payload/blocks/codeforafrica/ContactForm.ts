@@ -1,6 +1,6 @@
 const ContactForm = {
   slug: "contact-form",
-  imageURL: "/images/cms/blocks/contact_form.jpg",
+  imageURL: "/images/cms/blocks/codeforafrica/contact_form.jpg",
   imageAltText: "Contact Form",
   fields: [
     {

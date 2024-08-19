@@ -1,9 +1,9 @@
-import impacts from "../fields/impacts";
-import linkGroup from "../fields/links/linkGroup";
+import impacts from "@/payload/fields/impacts";
+import linkGroup from "@/payload/fields/links/linkGroup";
 
 const GetInvolved = {
   slug: "get-involved",
-  imageURL: "/images/cms/blocks/get_involved.jpg",
+  imageURL: "/images/cms/blocks/codeforafrica/get_involved.jpg",
   imageAltText: "Get Involved",
   fields: [
     impacts({

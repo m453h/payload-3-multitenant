@@ -1,6 +1,6 @@
 const GuidingPrinciples = {
   slug: "our-guiding-principles",
-  imageURL: "/images/cms/blocks/guiding_principles.png",
+  imageURL: "/images/cms/blocks/codeforafrica/guiding_principles.png",
   imageAltText: "Guiding Principles",
   fields: [
     {

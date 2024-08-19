@@ -12,7 +12,7 @@ const primaryTags = [
 const Posts = {
   // `posts` slug is already used by Post collection
   slug: "post-list",
-  imageURL: "/images/cms/blocks/posts.jpg",
+  imageURL: "/images/cms/blocks/codeforafrica/posts.jpg",
   imageAltText: "Stories & Opportunities",
   labels: {
     singular: {

@@ -12,6 +12,17 @@ import { Media } from '@/payload/collections/Media'
 import { Tenants } from '@/payload/collections/Tenants'
 import { Pages } from '@/payload/collections/Pages'
 import Site from '@/payload/globals/Site';
+import Authors from './payload/collections/codeforafrica/Authors'
+import GuidingPrinciples from '@/payload/collections/codeforafrica/GuidingPrinciples'
+import Partners from '@/payload/collections/codeforafrica/Partners'
+import Posts from '@/payload/collections/codeforafrica/Posts'
+import Donors from '@/payload/collections/codeforafrica/Donors'
+import Impact from '@/payload/collections/codeforafrica/Impact'
+import Members from '@/payload/collections/codeforafrica/Members'
+import Offices from '@/payload/collections/codeforafrica/Offices'
+import Projects from '@/payload/collections/codeforafrica/Projects'
+import Tags from './payload/collections/codeforafrica/Tags'
+import Teams from './payload/collections/codeforafrica/Teams'
 
 
 
@@ -23,7 +34,22 @@ export default buildConfig({
     user: Users.slug,
   },
   globals: [Site] as GlobalConfig[],
-  collections: [Users, Media, Tenants, Pages],
+  collections: [Users, 
+    Media, 
+    Tenants,
+    Pages, 
+    Authors, 
+    Donors,
+    GuidingPrinciples,
+    Impact,
+    Offices,
+    Members,
+    Partners,
+    Projects,
+    Posts,
+    Tags,
+    Teams,
+  ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

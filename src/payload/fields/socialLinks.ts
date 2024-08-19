@@ -42,10 +42,10 @@ function socialLinks(overrides: Overrides = { name: "links" }) {
           data: { platform: string; url: string };
         }) => {
           let label = "";
-          if (data.platform) {
+          if (data?.platform) {
             label = data.platform;
           }
-          if (data.url) {
+          if (data?.url) {
             label = label ? `${label} (${data.url})` : data.url;
           }
           if (!label) {

@@ -1,22 +1,14 @@
-import { slateEditor } from "@payloadcms/richtext-slate";
-
-import image from "../fields/image";
-import richText from "../fields/richText";
+import image from "@/payload/fields/image";
+import richText from "@/payload/fields/RichText";
 
 const Hero = {
   slug: "hero",
-  imageURL: "/images/cms/blocks/hero.jpg",
+  imageURL: "/images/cms/blocks/codeforafrica/hero.jpg",
   imageAltText: "Used in homepage.",
   fields: [
     richText({
       name: "title",
       required: true,
-      editor: slateEditor({
-        admin: {
-          elements: [],
-          leaves: ["bold"],
-        },
-      }),
     }),
     {
       name: "messages",

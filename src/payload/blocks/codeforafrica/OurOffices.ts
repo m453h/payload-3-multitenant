@@ -1,6 +1,6 @@
 const OurOffices = {
   slug: "our-offices",
-  imageURL: "/images/cms/blocks/our_offices.png",
+  imageURL: "/images/cms/blocks/codeforafrica/our_offices.png",
   imageAltText: "Our offices",
   fields: [
     {

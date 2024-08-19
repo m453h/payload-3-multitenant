@@ -1,10 +1,8 @@
-import { slateEditor } from "@payloadcms/richtext-slate";
-
-import richText from "../fields/richText";
+import richText from "@/payload/fields/RichText";
 
 const OurMission = {
   slug: "our-mission",
-  imageURL: "/images/cms/blocks/our_mission.jpg",
+  imageURL: "/images/cms/blocks/codeforafrica/our_mission.jpg",
   imageAltText: "Our mission",
   fields: [
     {
@@ -20,22 +18,6 @@ const OurMission = {
     richText({
       name: "description",
       required: true,
-      editor: slateEditor({
-        admin: {
-          elements: [
-            "h1",
-            "h2",
-            "h3",
-            "h4",
-            "h5",
-            "h6",
-            "link",
-            "ol",
-            "ul",
-            "indent",
-          ],
-        },
-      }),
     }),
   ],
 };

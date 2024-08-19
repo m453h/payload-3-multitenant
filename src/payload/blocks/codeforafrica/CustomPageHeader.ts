@@ -1,8 +1,8 @@
-import image from "../fields/image";
+import image from "@/payload/fields/image";
 
 const CustomPageHeader = {
   slug: "custom-page-header",
-  imageURL: "/images/cms/blocks/custom_page_header.jpg",
+  imageURL: "/images/cms/blocks//codeforafrica/custom_page_header.jpg",
   imageAltText: "Used in about page.",
   fields: [
     {

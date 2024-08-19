@@ -1,10 +1,9 @@
-import { slateEditor } from "@payloadcms/richtext-slate";
+import richText from "@/payload/fields/RichText";
 
-import richText from "../fields/richText";
 
 const Error = {
   slug: "error",
-  imageURL: "/images/cms/blocks/error.png",
+  imageURL: "/images/cms/blocks/codeforafrica/error.png",
   imageAltText: "Used to describe errors in error pages.",
   fields: [
     {
@@ -14,11 +13,6 @@ const Error = {
     },
     richText({
       name: "subtitle",
-      editor: slateEditor({
-        admin: {
-          elements: ["link"],
-        },
-      }),
     }),
   ],
 };
