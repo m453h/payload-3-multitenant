@@ -78,6 +78,7 @@ function socialLinks(overrides: Overrides = { name: "links" }) {
             options = socialMediaOptions,
             required = true,
           } = args;
+          // @ts-ignore
           return select(val, { hasMany, options, required, t });
         },
       },

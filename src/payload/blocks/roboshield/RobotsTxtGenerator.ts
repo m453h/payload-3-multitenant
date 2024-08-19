@@ -1,8 +1,8 @@
-import { Block, Field, Validate } from "payload";
+import { Block, Field, Validate, ValidateOptions } from "payload";
 import richText from "@/custom-fields/RichText";
 import { blocks } from "node_modules/payload/dist/fields/validations";
 
-const validateSteps: Validate = (value = [], args) => {
+const validateSteps: Validate = (value = [], args: any) => {
   const requiredSteps: string[] = ["finish"];
   const missingSteps = requiredSteps.filter(
     (slug) =>
