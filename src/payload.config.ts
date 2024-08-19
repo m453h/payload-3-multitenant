@@ -28,6 +28,8 @@ import Teams from './payload/collections/codeforafrica/Teams'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+const DATABASE_URI: string = process.env.DATABASE_URI ?? 
+  (() => { throw new Error('DATABASE_URI environment variable is not set') })();
 
 export default buildConfig({
   admin: {
@@ -56,7 +58,7 @@ export default buildConfig({
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db: mongooseAdapter({
-    url: process.env.DATABASE_URI,
+    url: DATABASE_URI,
   }),
   sharp,
   plugins: [

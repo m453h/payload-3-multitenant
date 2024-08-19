@@ -1,6 +1,7 @@
 import { deepmerge } from "@mui/utils";
+import { Field } from "payload";
 
-const authors = (overrides) =>
+const authors = (overrides): Field =>
   deepmerge(
     {
       name: "authors",

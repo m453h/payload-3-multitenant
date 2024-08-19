@@ -19,7 +19,7 @@ interface Args {
 /**
  * group field consisting of a link field.
  */
-function linkGroup(args: Args) {
+function linkGroup(args: Args): Field {
   const { linkConfig, overrides = {} } = args ?? {};
   const generatedLinkGroup = {
     name: "link",
@@ -28,7 +28,7 @@ function linkGroup(args: Args) {
     fields: [link(linkConfig)],
   };
 
-  return deepmerge(generatedLinkGroup, overrides);
+  return deepmerge(generatedLinkGroup, overrides) as Field;
 }
 
 export default linkGroup;
