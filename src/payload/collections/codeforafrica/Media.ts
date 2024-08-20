@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { canRead } from "@/payload/access/codeforafrica";
 
 const Media: CollectionConfig = {
   slug: "media",
@@ -9,7 +10,9 @@ const Media: CollectionConfig = {
     useAsTitle: "alt",
   },
   access: {
-    read: () => true, // Everyone can read Media
+    read: canRead,
+    create: () => true,
+    update: () => true,
   },
   upload: {
     //staticURL: "/media",

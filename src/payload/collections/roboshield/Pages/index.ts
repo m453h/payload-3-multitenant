@@ -1,10 +1,10 @@
 import type { CollectionConfig } from "payload";
 
-import { tenant } from "../../../fields/tenant";
-import { loggedIn } from "./access/loggedIn";
-import { tenantAdmins } from "./access/tenantAdmins";
-import { tenants } from "./access/tenants";
-import formatSlug from "./hooks/formatSlug";
+import { tenant } from "@/payload/fields/tenant";
+import { loggedIn } from "@/payload/access/loggedIn";
+import { tenantAdmins } from "@/payload/access/tenantAdmins";
+import { tenants } from "@/payload/access/tenants";
+import formatSlug from "@/payload/hooks/formatSlug";
 import {
   MetaDescriptionField,
   MetaImageField,
@@ -20,6 +20,7 @@ import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { Statistics } from "@/payload/blocks/roboshield/Statistics";
 import { Content } from "@/payload/blocks/roboshield/Content";
 import RobotsTxtGenerator from "@/payload/blocks/roboshield/RobotsTxtGenerator";
+import { canRead } from "@/payload/access/roboshield";
 
 
 export const Pages: CollectionConfig = {
@@ -30,7 +31,7 @@ export const Pages: CollectionConfig = {
     group: "Publications",
   },
   access: {
-    read: tenants,
+    read: canRead,
     create: loggedIn,
     update: tenantAdmins,
     delete: tenantAdmins,

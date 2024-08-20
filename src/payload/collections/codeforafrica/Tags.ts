@@ -1,16 +1,19 @@
 import slug from "@/payload/fields/slug";
 import type { CollectionConfig } from "payload";
+import { canRead } from "@/payload/access/codeforafrica";
 
 const Tags: CollectionConfig = {
   slug: "tag",
+  access: {
+    read: canRead,
+    create: () => true,
+    update: () => true,
+  },
   admin: {
     defaultColumns: ["name", "updatedAt"],
     enableRichTextLink: false,
     group: "Publications",
     useAsTitle: "name",
-  },
-  access: {
-    read: () => true,
   },
   fields: [
     {

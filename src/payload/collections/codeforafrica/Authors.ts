@@ -1,10 +1,13 @@
 
 import type { CollectionConfig } from "payload";
+import { canRead } from "@/payload/access/codeforafrica";
 
 const Authors: CollectionConfig = {
   slug: "author",
   access: {
-    read: () => true,
+    read: canRead,
+    create: () => true,
+    update: () => true,
   },
   admin: {
     defaultColumns: ["fullName", "updatedAt"],

@@ -1,8 +1,14 @@
 import { allCountries } from "@/payload/lib/data/json/countries";
 import type { CollectionConfig, Option } from "payload";
+import { canRead } from "@/payload/access/codeforafrica";
 
 const Offices: CollectionConfig = {
   slug: "offices",
+  access: {
+    read: canRead,
+    create: () => true,
+    update: () => true,
+  },
   admin: {
     group: "Organisation",
     defaultColumns: ["city", "country"],

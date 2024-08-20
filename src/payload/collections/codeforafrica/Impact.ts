@@ -1,6 +1,7 @@
 import image from "@/payload/fields/image";
 import richText from "@/payload/fields/RichText";
 import type { CollectionConfig } from "payload";
+import { canRead } from "@/payload/access/codeforafrica";
 
 const Impact: CollectionConfig = {
   slug: "impact",
@@ -11,7 +12,9 @@ const Impact: CollectionConfig = {
     useAsTitle: "title",
   },
   access: {
-    read: () => true,
+    read: canRead,
+    create: () => true,
+    update: () => true,
   },
   fields: [
     {

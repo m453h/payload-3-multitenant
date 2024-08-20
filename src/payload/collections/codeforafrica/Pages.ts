@@ -22,11 +22,12 @@ import fullTitle from "@/payload/fields/fullTitle";
 import slug from "@/payload/fields/slug";
 import formatDraftUrl from "@/payload/utilities/formatDraftUrl";
 import { CollectionConfig } from "node_modules/payload/dist/collections/config/types";
+import { canRead } from "@/payload/access/codeforafrica";
 
 const Pages: CollectionConfig = {
   slug: "CodeForAfricaPages",
   access: {
-    read: () => true,
+    read: canRead,
     create: () => true,
     update: () => true,
   },

@@ -1,8 +1,14 @@
 import image from "@/payload/fields/image";
 import slug from "@/payload/fields/slug";
 import type { CollectionConfig } from "payload";
+import { canRead } from "@/payload/access/codeforafrica";
 
 const Donors: CollectionConfig = {
+  access: {
+    read: canRead,
+    create: () => true,
+    update: () => true,
+  },
   slug: "donors",
   labels: {
     singular: {

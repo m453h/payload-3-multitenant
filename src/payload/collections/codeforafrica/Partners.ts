@@ -4,9 +4,15 @@ import slug from "@/payload/fields/slug";
 import socialLinks from "@/payload/fields/socialLinks";
 import nestCollectionUnderPage from "@/payload/utilities/nestCollectionUnderPage";
 import type { CollectionConfig } from "payload";
+import { canRead } from "@/payload/access/codeforafrica";
 
 const Partners: CollectionConfig = {
   slug: "partners",
+  access: {
+    read: canRead,
+    create: () => true,
+    update: () => true,
+  },
   labels: {
     singular: {
       en: "Partner",
@@ -21,10 +27,6 @@ const Partners: CollectionConfig = {
     group: "Organisation",
     useAsTitle: "name",
   },
-  access: {
-    read: () => true,
-  },
-
   fields: [
     {
       name: "name",

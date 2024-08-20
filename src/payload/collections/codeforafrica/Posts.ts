@@ -5,9 +5,15 @@ import publishedOn from "@/payload/fields/publishedOn";
 import slug from "@/payload/fields/slug";
 import tags from "@/payload/fields/tags";
 import type { CollectionConfig } from "payload";
+import { canRead } from "@/payload/access/codeforafrica";
 
 const Posts: CollectionConfig = {
   slug: "posts",
+  access: {
+    read: canRead,
+    create: () => true,
+    update: () => true,
+  },
   labels: {
     singular: {
       en: "Post",
@@ -15,9 +21,6 @@ const Posts: CollectionConfig = {
     plural: {
       en: "Posts",
     },
-  },
-  access: {
-    read: () => true,
   },
   admin: {
     defaultColumns: ["title", "authors", "publishedOn"],

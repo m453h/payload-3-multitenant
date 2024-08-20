@@ -7,9 +7,15 @@ import slug from "@/payload/fields/slug";
 import tags from "@/payload/fields/tags";
 import nestCollectionUnderPage from "@/payload/utilities/nestCollectionUnderPage";
 import type { CollectionConfig } from "payload";
+import { canRead } from "@/payload/access/codeforafrica";
 
 const Projects: CollectionConfig = {
   slug: "projects",
+  access: {
+    read: canRead,
+    create: () => true,
+    update: () => true,
+  },
   admin: {
     defaultColumns: ["name", "tagLine", "updatedAt"],
     enableRichTextLink: false,

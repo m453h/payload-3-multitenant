@@ -2,8 +2,14 @@ import image from "@/payload/fields/image";
 import richText from "@/payload/fields/RichText";
 import slug from "@/payload/fields/slug";
 import type { CollectionConfig } from "payload";
+import { canRead } from "@/payload/access/codeforafrica";
 
 const GuidingPrinciples: CollectionConfig = {
+  access: {
+    read: canRead,
+    create: () => true,
+    update: () => true,
+  },
   slug: "guiding-principles",
   admin: {
     defaultColumns: ["title", "slug", "updatedAt"],

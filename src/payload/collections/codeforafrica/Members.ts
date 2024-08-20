@@ -5,8 +5,14 @@ import slug from "@/payload/fields/slug";
 import socialLinks from "@/payload/fields/socialLinks";
 import nestCollectionUnderPage from "@/payload/utilities/nestCollectionUnderPage";
 import type { CollectionConfig, Option } from "payload";
+import { canRead } from "@/payload/access/codeforafrica";
 
 const Members: CollectionConfig = {
+  access: {
+    read: canRead,
+    create: () => true,
+    update: () => true,
+  },
   slug: "members",
   labels: {
     singular: {
