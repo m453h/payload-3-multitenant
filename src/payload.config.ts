@@ -10,7 +10,7 @@ import { Users } from '@/payload/collections/Users'
 import { Media } from '@/payload/collections/Media'
 import { Tenants } from '@/payload/collections/Tenants'
 import  Pages  from '@/payload/collections/codeforafrica/Pages'
-import { Pages as RoboShieldPages } from '@/payload/collections/Pages'
+import { Pages as RoboShieldPages } from '@/payload/collections/roboshield/Pages'
 import Site from '@/payload/globals/Site';
 import Authors from './payload/collections/codeforafrica/Authors'
 import GuidingPrinciples from '@/payload/collections/codeforafrica/GuidingPrinciples'
@@ -35,11 +35,10 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  globals: [Site] as GlobalConfig[],
+  //globals: [Site] as GlobalConfig[],
   collections: [Users, 
     Media, 
     Tenants,
-    Pages, 
     Authors, 
     Donors,
     GuidingPrinciples,
@@ -51,6 +50,7 @@ export default buildConfig({
     Posts,
     Tags,
     Teams,
+    Pages, 
     RoboShieldPages
   ],
   editor: lexicalEditor(),

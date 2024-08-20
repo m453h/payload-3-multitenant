@@ -88,7 +88,7 @@ const link = ({
             pt: "Documento para link para",
           },
           type: "relationship",
-          relationTo: ["pages"],
+          relationTo: ["RoboshieldPages","CodeForAfricaPages"],
           required,
           maxDepth: 1,
           admin: {

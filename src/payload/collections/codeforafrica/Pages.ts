@@ -24,7 +24,7 @@ import formatDraftUrl from "@/payload/utilities/formatDraftUrl";
 import { CollectionConfig } from "node_modules/payload/dist/collections/config/types";
 
 const Pages: CollectionConfig = {
-  slug: "pages",
+  slug: "CodeForAfricaPages",
   access: {
     read: () => true,
     create: () => true,
@@ -33,7 +33,7 @@ const Pages: CollectionConfig = {
   admin: {
     defaultColumns: ["fullTitle", "updatedAt"],
     group: "Publications",
-    //preview: (doc, options) => formatDraftUrl("pages", doc, options),
+    preview: (doc, options) => formatDraftUrl("pages", doc, options),
     useAsTitle: "title",
   },
   fields: [
@@ -43,7 +43,7 @@ const Pages: CollectionConfig = {
       required: true,
       localized: true,
     },
-   // fullTitle({ overrides: { localized: true } }),
+    fullTitle({ overrides: { localized: true } }),
     slug(),
     {
       name: "blocks",
