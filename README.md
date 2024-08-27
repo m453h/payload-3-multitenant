@@ -91,5 +91,26 @@ For authentication two custom hooks have been tied to the User collection namely
 
  - `recordLastLoggedInTenant`: This hook is invoked `afterLogin`. It records the id of the tenant a user has been authenticated with. This is further used in providing access control to ensure that a user only sees collections, blocks and other configurations belonging to the domain they have been authenticated with. Take note: Super-Admins will only be authenticated via 
 
-For authorization a custom collection level `Access` function named `canAccessFromDomain` custom hooks have been tied to each collection which verifies if a user can view a given collection after being authenticated from a specific domain.
+For authorization a custom function that is used in collection level `Access` function(s) named `canAccessFromDomain` has been implemented. The collection level Access has been tied to each collection which verifies if a user can view a given collection after being authenticated from a specific domain. The implementation of the function can be seen on `src/payload/access/<APP_NAME>`
 
+An example of this implementation can be seen below:
+
+```
+import type { Access } from "payload";
+import canAccessFromDomain from "@/payload/access/canAccessFromDomain"
+
+export const canRead: Access = ({ req: { user } }) => {
+   return canAccessFromDomain(user, "CodeforAfrica");
+};
+
+```
+The `canRead` Access function is tied to each collection under a specific folder e.g. for the example to control access of Authors collection we can use the following code snippet:
+
+```
+import { canRead } from "@/payload/access/codeforafrica";
+
+const Authors: CollectionConfig = {
+  slug: "author",
+  access: {
+    read: canRead,
+```
