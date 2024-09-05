@@ -1022,7 +1022,7 @@ export interface RoboshieldPage {
                     };
                     [k: string]: unknown;
                   };
-                  icon?: string | Media | null;
+                  icon?: (string | null) | Media;
                   id?: string | null;
                 }[]
               | null;
@@ -1216,7 +1216,7 @@ export interface RoboshieldPage {
     | null;
   meta?: {
     title?: string | null;
-    image?: string | Media | null;
+    image?: (string | null) | Media;
     description?: string | null;
   };
   updatedAt: string;
