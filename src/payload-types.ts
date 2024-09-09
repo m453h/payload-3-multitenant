@@ -848,15 +848,10 @@ export interface Project {
   externalLink: {
     label: string;
     linkType?: ('custom' | 'internal') | null;
-    doc?:
-      | ({
-          relationTo: 'RoboshieldPages';
-          value: string | RoboshieldPage;
-        } | null)
-      | ({
-          relationTo: 'CodeForAfricaPages';
-          value: string | CodeForAfricaPage;
-        } | null);
+    doc?: {
+      relationTo: 'RoboshieldPages';
+      value: string | RoboshieldPage;
+    } | null;
     url?: string | null;
     href: string;
     newTab?: boolean | null;
@@ -889,15 +884,10 @@ export interface Project {
         type: 'source' | 'data';
         label: string;
         linkType?: ('custom' | 'internal') | null;
-        doc?:
-          | ({
-              relationTo: 'RoboshieldPages';
-              value: string | RoboshieldPage;
-            } | null)
-          | ({
-              relationTo: 'CodeForAfricaPages';
-              value: string | CodeForAfricaPage;
-            } | null);
+        doc?: {
+          relationTo: 'RoboshieldPages';
+          value: string | RoboshieldPage;
+        } | null;
         url?: string | null;
         href: string;
         id?: string | null;
@@ -1256,6 +1246,66 @@ export interface SiteHero {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: string;
+  title: string;
+  coverImage: string | Media;
+  content: (
+    | {
+        richTextBlockFields: {
+          content: {
+            root: {
+              type: string;
+              children: {
+                type: string;
+                version: number;
+                [k: string]: unknown;
+              }[];
+              direction: ('ltr' | 'rtl') | null;
+              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+              indent: number;
+              version: number;
+            };
+            [k: string]: unknown;
+          };
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'richText';
+      }
+    | {
+        mediaBlockFields: {
+          image: string | Media;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'mediaBlock';
+      }
+    | {
+        embedBlockFields?: {
+          embedType?: ('url' | 'code') | null;
+          url?: string | null;
+          caption?: string | null;
+          code?: string | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'external-embed';
+      }
+  )[];
+  slug?: string | null;
+  publishedOn: string;
+  tags: (string | Tag)[];
+  authors?: (string | Author)[] | null;
+  excerpt: string;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "CodeForAfricaPages".
  */
 export interface CodeForAfricaPage {
@@ -1311,15 +1361,10 @@ export interface CodeForAfricaPage {
               action: {
                 label: string;
                 linkType?: ('custom' | 'internal') | null;
-                doc?:
-                  | ({
-                      relationTo: 'RoboshieldPages';
-                      value: string | RoboshieldPage;
-                    } | null)
-                  | ({
-                      relationTo: 'CodeForAfricaPages';
-                      value: string | CodeForAfricaPage;
-                    } | null);
+                doc?: {
+                  relationTo: 'RoboshieldPages';
+                  value: string | RoboshieldPage;
+                } | null;
                 url?: string | null;
                 href: string;
                 newTab?: boolean | null;
@@ -1335,15 +1380,10 @@ export interface CodeForAfricaPage {
             action: {
               label: string;
               linkType?: ('custom' | 'internal') | null;
-              doc?:
-                | ({
-                    relationTo: 'RoboshieldPages';
-                    value: string | RoboshieldPage;
-                  } | null)
-                | ({
-                    relationTo: 'CodeForAfricaPages';
-                    value: string | CodeForAfricaPage;
-                  } | null);
+              doc?: {
+                relationTo: 'RoboshieldPages';
+                value: string | RoboshieldPage;
+              } | null;
               url?: string | null;
               href: string;
               newTab?: boolean | null;
@@ -1357,15 +1397,10 @@ export interface CodeForAfricaPage {
             action: {
               label: string;
               linkType?: ('custom' | 'internal') | null;
-              doc?:
-                | ({
-                    relationTo: 'RoboshieldPages';
-                    value: string | RoboshieldPage;
-                  } | null)
-                | ({
-                    relationTo: 'CodeForAfricaPages';
-                    value: string | CodeForAfricaPage;
-                  } | null);
+              doc?: {
+                relationTo: 'RoboshieldPages';
+                value: string | RoboshieldPage;
+              } | null;
               url?: string | null;
               href: string;
               newTab?: boolean | null;
@@ -1415,15 +1450,10 @@ export interface CodeForAfricaPage {
             action: {
               label: string;
               linkType?: ('custom' | 'internal') | null;
-              doc?:
-                | ({
-                    relationTo: 'RoboshieldPages';
-                    value: string | RoboshieldPage;
-                  } | null)
-                | ({
-                    relationTo: 'CodeForAfricaPages';
-                    value: string | CodeForAfricaPage;
-                  } | null);
+              doc?: {
+                relationTo: 'RoboshieldPages';
+                value: string | RoboshieldPage;
+              } | null;
               url?: string | null;
               href: string;
               newTab?: boolean | null;
@@ -1452,15 +1482,10 @@ export interface CodeForAfricaPage {
             action: {
               label: string;
               linkType?: ('custom' | 'internal') | null;
-              doc?:
-                | ({
-                    relationTo: 'RoboshieldPages';
-                    value: string | RoboshieldPage;
-                  } | null)
-                | ({
-                    relationTo: 'CodeForAfricaPages';
-                    value: string | CodeForAfricaPage;
-                  } | null);
+              doc?: {
+                relationTo: 'RoboshieldPages';
+                value: string | RoboshieldPage;
+              } | null;
               url?: string | null;
               href: string;
               newTab?: boolean | null;
@@ -1616,66 +1641,6 @@ export interface CodeForAfricaPage {
           }
       )[]
     | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts".
- */
-export interface Post {
-  id: string;
-  title: string;
-  coverImage: string | Media;
-  content: (
-    | {
-        richTextBlockFields: {
-          content: {
-            root: {
-              type: string;
-              children: {
-                type: string;
-                version: number;
-                [k: string]: unknown;
-              }[];
-              direction: ('ltr' | 'rtl') | null;
-              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-              indent: number;
-              version: number;
-            };
-            [k: string]: unknown;
-          };
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'richText';
-      }
-    | {
-        mediaBlockFields: {
-          image: string | Media;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'mediaBlock';
-      }
-    | {
-        embedBlockFields?: {
-          embedType?: ('url' | 'code') | null;
-          url?: string | null;
-          caption?: string | null;
-          code?: string | null;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'external-embed';
-      }
-  )[];
-  slug?: string | null;
-  publishedOn: string;
-  tags: (string | Tag)[];
-  authors?: (string | Author)[] | null;
-  excerpt: string;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;

@@ -1,21 +1,16 @@
-import { deepmerge } from "@mui/utils";
+import { deepmerge } from '@mui/utils'
 
-import mapLinkTypeToHref from "@/payload/utilities/mapLinkTypeToHref";
-import {
-  RowField,
-  SanitizedCollectionConfig,
-  PayloadRequest,
-  Condition,
-} from "payload";
+import mapLinkTypeToHref from '@/payload/utilities/mapLinkTypeToHref'
+import { RowField, SanitizedCollectionConfig, PayloadRequest, Condition } from 'payload'
 
 interface CollectionBeforeReadHookArgs {
-  collection: SanitizedCollectionConfig;
-  siblingData: any;
-  doc: any;
+  collection: SanitizedCollectionConfig
+  siblingData: any
+  doc: any
   query: {
-    [key: string]: any;
-  };
-  req: PayloadRequest;
+    [key: string]: any
+  }
+  req: PayloadRequest
 }
 
 export async function mapLinkToHrefBeforeValidate({
@@ -23,9 +18,9 @@ export async function mapLinkToHrefBeforeValidate({
   req: { payload },
 }: CollectionBeforeReadHookArgs) {
   // Don't modify original doc.
-  const doc = { ...siblingData.doc };
-  if (typeof doc.value === "string") {
-    const { relationTo: collection, value: id } = doc;
+  const doc = { ...siblingData.doc }
+  if (typeof doc.value === 'string') {
+    const { relationTo: collection, value: id } = doc
     doc.value = await payload.findByID({
       collection,
       id,
@@ -33,15 +28,15 @@ export async function mapLinkToHrefBeforeValidate({
       // relationship. We may end up getting stuck on infinite recursion if
       // collection contain other links.
       depth: 0,
-    });
+    })
   }
-  const href = mapLinkTypeToHref({ ...siblingData, doc });
+  const href = mapLinkTypeToHref({ ...siblingData, doc })
 
-  return href;
+  return href
 }
 
 const link = ({
-  defaultValue = "internal",
+  defaultValue = 'internal',
   disableLabel = false,
   disableLinkTypeSelection = false,
   disableOpenInNewTab = false,
@@ -49,23 +44,23 @@ const link = ({
   required = true,
 } = {}) => {
   const linkResult: RowField = {
-    type: "row",
+    type: 'row',
     fields: [
       {
-        name: "linkType",
-        type: "radio",
+        name: 'linkType',
+        type: 'radio',
         options: [
           {
             label: {
-              en: "Custom URL",
+              en: 'Custom URL',
             },
-            value: "custom",
+            value: 'custom',
           },
           {
             label: {
-              en: "Internal link",
+              en: 'Internal link',
             },
-            value: "internal",
+            value: 'internal',
           },
         ],
         defaultValue,
@@ -74,45 +69,43 @@ const link = ({
         },
       },
     ],
-  };
+  }
 
   const linkTypes = [
     {
-      type: "row",
+      type: 'row',
       fields: [
         {
-          name: "doc",
+          name: 'doc',
           label: {
-            en: "Document to link to",
-            fr: "Document pour lien vers",
-            pt: "Documento para link para",
+            en: 'Document to link to',
+            fr: 'Document pour lien vers',
+            pt: 'Documento para link para',
           },
-          type: "relationship",
-          relationTo: ["RoboshieldPages","CodeForAfricaPages"],
+          type: 'relationship',
+          relationTo: [],
           required,
           maxDepth: 1,
           admin: {
-            condition: ((_, siblingData) =>
-              siblingData?.linkType === "internal") as Condition,
+            condition: ((_, siblingData) => siblingData?.linkType === 'internal') as Condition,
           },
         },
         {
-          name: "url",
+          name: 'url',
           label: {
-            en: "Custom URL",
-            fr: "URL personnalisée",
-            pt: "URL personalizado",
+            en: 'Custom URL',
+            fr: 'URL personnalisée',
+            pt: 'URL personalizado',
           },
-          type: "text",
+          type: 'text',
           required,
           admin: {
-            condition: ((_, siblingData) =>
-              siblingData?.linkType === "custom") as Condition,
+            condition: ((_, siblingData) => siblingData?.linkType === 'custom') as Condition,
           },
         },
         {
-          name: "href",
-          type: "text",
+          name: 'href',
+          type: 'text',
           required,
           admin: {
             hidden: true,
@@ -123,45 +116,45 @@ const link = ({
         },
       ],
     },
-  ];
-  let labelFields: any = [];
+  ]
+  let labelFields: any = []
   if (!disableLabel) {
     labelFields = [
       {
-        type: "row",
+        type: 'row',
         fields: [
           {
-            name: "label",
+            name: 'label',
             label: {
-              en: "Label",
-              pt: "Rótulo",
+              en: 'Label',
+              pt: 'Rótulo',
             },
-            type: "text",
+            type: 'text',
             required,
           },
         ],
       },
-    ];
+    ]
   }
-  linkResult.fields = [...labelFields, ...linkResult.fields, ...linkTypes];
+  linkResult.fields = [...labelFields, ...linkResult.fields, ...linkTypes]
   if (!disableOpenInNewTab) {
     linkResult.fields.push({
-      type: "row",
+      type: 'row',
       fields: [
         {
-          name: "newTab",
+          name: 'newTab',
           label: {
-            en: "Open in new tab",
-            fr: "Ouvrir dans un nouvel onglet",
-            pt: "Abrir num novo separador",
+            en: 'Open in new tab',
+            fr: 'Ouvrir dans un nouvel onglet',
+            pt: 'Abrir num novo separador',
           },
-          type: "checkbox",
+          type: 'checkbox',
         },
       ],
-    });
+    })
   }
 
-  return deepmerge(linkResult, overrides);
-};
+  return deepmerge(linkResult, overrides)
+}
 
-export default link;
+export default link
