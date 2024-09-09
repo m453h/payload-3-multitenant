@@ -6,11 +6,25 @@ interface RowData extends Record<string, any> {
   title?: string
 }
 
-export const RowLabel = ({ text }: { text: string }) => {
-  const { data, rowNumber } = useRowLabel<RowData>()
-  const message = data?.title ?? data?.message
+interface Data {
+  title?: string
+  message?: string
+  partner?: string
+  [key: string]: unknown
+}
 
-  return <label>{message ?? `Header ${String(rowNumber).padStart(2, '0')}`}</label>
+const getLabelData = (path: string, data: Data): { label; data } => {
+  if (path.includes('Headers')) return { label: 'Header', data: data?.title }
+  if (path.includes('message')) return { label: 'Message', data: data?.message }
+  if (path.includes('partners')) return { label: 'Partner', data: data?.partner }
+  return { label: 'Item', data: null }
+}
+
+export const RowLabel = () => {
+  const { data, rowNumber, path } = useRowLabel<RowData>()
+  const { label, data: message } = getLabelData(path, data)
+
+  return <label>{message ?? `${label} ${String(rowNumber).padStart(2, '0')}`}</label>
 }
 
 export default RowLabel

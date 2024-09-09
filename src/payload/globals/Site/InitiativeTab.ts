@@ -42,6 +42,11 @@ const PartnersTab: Tab = {
               disableOpenInNewTab: true,
             }),
           ],
+          admin: {
+            components: {
+              RowLabel: '@/payload/components/RowLabel.tsx',
+            },
+          },
         },
       ],
     },

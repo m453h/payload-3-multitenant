@@ -60,6 +60,7 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
+  globals: [Site] as GlobalConfig[],
   db: mongooseAdapter({
     url: DATABASE_URI,
   }),
