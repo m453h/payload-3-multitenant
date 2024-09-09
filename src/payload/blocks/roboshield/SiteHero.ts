@@ -50,7 +50,7 @@ export const SiteHero: Block = {
       ],
       admin: {
         components: {
-          RowLabel: '@/payload/components/RowLabel.tsx#MyComponent',
+          RowLabel: '@/payload/components/RowLabel.tsx#RowLabel',
         },
       },
     },
