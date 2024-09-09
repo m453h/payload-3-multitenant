@@ -21,11 +21,12 @@ import { StrikethroughFeatureClient as StrikethroughFeatureClient_19 } from '@pa
 import { UnderlineFeatureClient as UnderlineFeatureClient_20 } from '@payloadcms/richtext-lexical/client'
 import { BoldFeatureClient as BoldFeatureClient_21 } from '@payloadcms/richtext-lexical/client'
 import { ItalicFeatureClient as ItalicFeatureClient_22 } from '@payloadcms/richtext-lexical/client'
-import { OverviewComponent as OverviewComponent_23 } from '@payloadcms/plugin-seo/client'
-import { MetaTitleComponent as MetaTitleComponent_24 } from '@payloadcms/plugin-seo/client'
-import { MetaImageComponent as MetaImageComponent_25 } from '@payloadcms/plugin-seo/client'
-import { MetaDescriptionComponent as MetaDescriptionComponent_26 } from '@payloadcms/plugin-seo/client'
-import { PreviewComponent as PreviewComponent_27 } from '@payloadcms/plugin-seo/client'
+import { MyComponent as MyComponent_23 } from '@/payload/components/RowLabel.tsx'
+import { OverviewComponent as OverviewComponent_24 } from '@payloadcms/plugin-seo/client'
+import { MetaTitleComponent as MetaTitleComponent_25 } from '@payloadcms/plugin-seo/client'
+import { MetaImageComponent as MetaImageComponent_26 } from '@payloadcms/plugin-seo/client'
+import { MetaDescriptionComponent as MetaDescriptionComponent_27 } from '@payloadcms/plugin-seo/client'
+import { PreviewComponent as PreviewComponent_28 } from '@payloadcms/plugin-seo/client'
 
 export const importMap = {
   "@payloadcms/richtext-lexical/client#RichTextCell": RichTextCell_0,
@@ -51,9 +52,10 @@ export const importMap = {
   "@payloadcms/richtext-lexical/client#UnderlineFeatureClient": UnderlineFeatureClient_20,
   "@payloadcms/richtext-lexical/client#BoldFeatureClient": BoldFeatureClient_21,
   "@payloadcms/richtext-lexical/client#ItalicFeatureClient": ItalicFeatureClient_22,
-  "@payloadcms/plugin-seo/client#OverviewComponent": OverviewComponent_23,
-  "@payloadcms/plugin-seo/client#MetaTitleComponent": MetaTitleComponent_24,
-  "@payloadcms/plugin-seo/client#MetaImageComponent": MetaImageComponent_25,
-  "@payloadcms/plugin-seo/client#MetaDescriptionComponent": MetaDescriptionComponent_26,
-  "@payloadcms/plugin-seo/client#PreviewComponent": PreviewComponent_27
+  "@/payload/components/RowLabel.tsx#MyComponent": MyComponent_23,
+  "@payloadcms/plugin-seo/client#OverviewComponent": OverviewComponent_24,
+  "@payloadcms/plugin-seo/client#MetaTitleComponent": MetaTitleComponent_25,
+  "@payloadcms/plugin-seo/client#MetaImageComponent": MetaImageComponent_26,
+  "@payloadcms/plugin-seo/client#MetaDescriptionComponent": MetaDescriptionComponent_27,
+  "@payloadcms/plugin-seo/client#PreviewComponent": PreviewComponent_28
 }

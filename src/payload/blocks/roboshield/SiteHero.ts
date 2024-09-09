@@ -48,6 +48,11 @@ export const SiteHero: Block = {
           label: 'Content',
         },
       ],
+      admin: {
+        components: {
+          RowLabel: '@/payload/components/RowLabel.tsx#MyComponent',
+        },
+      },
     },
     richText({
       name: 'heroDescription',
