@@ -21,7 +21,7 @@ import { StrikethroughFeatureClient as StrikethroughFeatureClient_19 } from '@pa
 import { UnderlineFeatureClient as UnderlineFeatureClient_20 } from '@payloadcms/richtext-lexical/client'
 import { BoldFeatureClient as BoldFeatureClient_21 } from '@payloadcms/richtext-lexical/client'
 import { ItalicFeatureClient as ItalicFeatureClient_22 } from '@payloadcms/richtext-lexical/client'
-import { RowLabel as RowLabel_23 } from '@/payload/components/RowLabel.tsx'
+import { default as default_23 } from '@/payload/components/RowLabel.tsx'
 import { OverviewComponent as OverviewComponent_24 } from '@payloadcms/plugin-seo/client'
 import { MetaTitleComponent as MetaTitleComponent_25 } from '@payloadcms/plugin-seo/client'
 import { MetaImageComponent as MetaImageComponent_26 } from '@payloadcms/plugin-seo/client'
@@ -52,7 +52,7 @@ export const importMap = {
   "@payloadcms/richtext-lexical/client#UnderlineFeatureClient": UnderlineFeatureClient_20,
   "@payloadcms/richtext-lexical/client#BoldFeatureClient": BoldFeatureClient_21,
   "@payloadcms/richtext-lexical/client#ItalicFeatureClient": ItalicFeatureClient_22,
-  "@/payload/components/RowLabel.tsx#RowLabel": RowLabel_23,
+  "@/payload/components/RowLabel.tsx#default": default_23,
   "@payloadcms/plugin-seo/client#OverviewComponent": OverviewComponent_24,
   "@payloadcms/plugin-seo/client#MetaTitleComponent": MetaTitleComponent_25,
   "@payloadcms/plugin-seo/client#MetaImageComponent": MetaImageComponent_26,

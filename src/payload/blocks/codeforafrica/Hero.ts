@@ -25,7 +25,7 @@ const Hero: Block = {
       admin: {
         className: 'array-field-nested',
         components: {
-          RowLabel: '@/payload/components/RowLabel.tsx#RowLabel',
+          RowLabel: '@/payload/components/RowLabel.tsx',
         },
       },
     },

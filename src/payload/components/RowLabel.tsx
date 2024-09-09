@@ -12,3 +12,5 @@ export const RowLabel = ({ text }: { text: string }) => {
 
   return <label>{message ?? `Header ${String(rowNumber).padStart(2, '0')}`}</label>
 }
+
+export default RowLabel
