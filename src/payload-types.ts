@@ -851,13 +851,17 @@ export interface Project {
     link: {
       type?: ('reference' | 'custom') | null;
       newTab?: boolean | null;
-      reference?: {
-        relationTo: 'RoboshieldPages';
-        value: string | RoboshieldPage;
-      } | null;
+      reference?:
+        | ({
+            relationTo: 'RoboshieldPages';
+            value: string | RoboshieldPage;
+          } | null)
+        | ({
+            relationTo: 'CodeForAfricaPages';
+            value: string | CodeForAfricaPage;
+          } | null);
       url?: string | null;
       label: string;
-      appearance?: ('default' | 'outline') | null;
     };
   };
   thumbnail: string | Media;
@@ -889,13 +893,17 @@ export interface Project {
         link: {
           type?: ('reference' | 'custom') | null;
           newTab?: boolean | null;
-          reference?: {
-            relationTo: 'RoboshieldPages';
-            value: string | RoboshieldPage;
-          } | null;
+          reference?:
+            | ({
+                relationTo: 'RoboshieldPages';
+                value: string | RoboshieldPage;
+              } | null)
+            | ({
+                relationTo: 'CodeForAfricaPages';
+                value: string | CodeForAfricaPage;
+              } | null);
           url?: string | null;
           label: string;
-          appearance?: ('default' | 'outline') | null;
         };
         id?: string | null;
       }[]
@@ -1253,66 +1261,6 @@ export interface SiteHero {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts".
- */
-export interface Post {
-  id: string;
-  title: string;
-  coverImage: string | Media;
-  content: (
-    | {
-        richTextBlockFields: {
-          content: {
-            root: {
-              type: string;
-              children: {
-                type: string;
-                version: number;
-                [k: string]: unknown;
-              }[];
-              direction: ('ltr' | 'rtl') | null;
-              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-              indent: number;
-              version: number;
-            };
-            [k: string]: unknown;
-          };
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'richText';
-      }
-    | {
-        mediaBlockFields: {
-          image: string | Media;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'mediaBlock';
-      }
-    | {
-        embedBlockFields?: {
-          embedType?: ('url' | 'code') | null;
-          url?: string | null;
-          caption?: string | null;
-          code?: string | null;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'external-embed';
-      }
-  )[];
-  slug?: string | null;
-  publishedOn: string;
-  tags: (string | Tag)[];
-  authors?: (string | Author)[] | null;
-  excerpt: string;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "CodeForAfricaPages".
  */
 export interface CodeForAfricaPage {
@@ -1368,13 +1316,17 @@ export interface CodeForAfricaPage {
                 link: {
                   type?: ('reference' | 'custom') | null;
                   newTab?: boolean | null;
-                  reference?: {
-                    relationTo: 'RoboshieldPages';
-                    value: string | RoboshieldPage;
-                  } | null;
+                  reference?:
+                    | ({
+                        relationTo: 'RoboshieldPages';
+                        value: string | RoboshieldPage;
+                      } | null)
+                    | ({
+                        relationTo: 'CodeForAfricaPages';
+                        value: string | CodeForAfricaPage;
+                      } | null);
                   url?: string | null;
                   label: string;
-                  appearance?: ('default' | 'outline') | null;
                 };
               };
             };
@@ -1389,13 +1341,17 @@ export interface CodeForAfricaPage {
               link: {
                 type?: ('reference' | 'custom') | null;
                 newTab?: boolean | null;
-                reference?: {
-                  relationTo: 'RoboshieldPages';
-                  value: string | RoboshieldPage;
-                } | null;
+                reference?:
+                  | ({
+                      relationTo: 'RoboshieldPages';
+                      value: string | RoboshieldPage;
+                    } | null)
+                  | ({
+                      relationTo: 'CodeForAfricaPages';
+                      value: string | CodeForAfricaPage;
+                    } | null);
                 url?: string | null;
                 label: string;
-                appearance?: ('default' | 'outline') | null;
               };
             };
             id?: string | null;
@@ -1408,13 +1364,17 @@ export interface CodeForAfricaPage {
               link: {
                 type?: ('reference' | 'custom') | null;
                 newTab?: boolean | null;
-                reference?: {
-                  relationTo: 'RoboshieldPages';
-                  value: string | RoboshieldPage;
-                } | null;
+                reference?:
+                  | ({
+                      relationTo: 'RoboshieldPages';
+                      value: string | RoboshieldPage;
+                    } | null)
+                  | ({
+                      relationTo: 'CodeForAfricaPages';
+                      value: string | CodeForAfricaPage;
+                    } | null);
                 url?: string | null;
                 label: string;
-                appearance?: ('default' | 'outline') | null;
               };
             };
             id?: string | null;
@@ -1463,13 +1423,17 @@ export interface CodeForAfricaPage {
               link: {
                 type?: ('reference' | 'custom') | null;
                 newTab?: boolean | null;
-                reference?: {
-                  relationTo: 'RoboshieldPages';
-                  value: string | RoboshieldPage;
-                } | null;
+                reference?:
+                  | ({
+                      relationTo: 'RoboshieldPages';
+                      value: string | RoboshieldPage;
+                    } | null)
+                  | ({
+                      relationTo: 'CodeForAfricaPages';
+                      value: string | CodeForAfricaPage;
+                    } | null);
                 url?: string | null;
                 label: string;
-                appearance?: ('default' | 'outline') | null;
               };
             };
             id?: string | null;
@@ -1497,13 +1461,17 @@ export interface CodeForAfricaPage {
               link: {
                 type?: ('reference' | 'custom') | null;
                 newTab?: boolean | null;
-                reference?: {
-                  relationTo: 'RoboshieldPages';
-                  value: string | RoboshieldPage;
-                } | null;
+                reference?:
+                  | ({
+                      relationTo: 'RoboshieldPages';
+                      value: string | RoboshieldPage;
+                    } | null)
+                  | ({
+                      relationTo: 'CodeForAfricaPages';
+                      value: string | CodeForAfricaPage;
+                    } | null);
                 url?: string | null;
                 label: string;
-                appearance?: ('default' | 'outline') | null;
               };
             };
             image: string | Media;
@@ -1663,6 +1631,66 @@ export interface CodeForAfricaPage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: string;
+  title: string;
+  coverImage: string | Media;
+  content: (
+    | {
+        richTextBlockFields: {
+          content: {
+            root: {
+              type: string;
+              children: {
+                type: string;
+                version: number;
+                [k: string]: unknown;
+              }[];
+              direction: ('ltr' | 'rtl') | null;
+              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+              indent: number;
+              version: number;
+            };
+            [k: string]: unknown;
+          };
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'richText';
+      }
+    | {
+        mediaBlockFields: {
+          image: string | Media;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'mediaBlock';
+      }
+    | {
+        embedBlockFields?: {
+          embedType?: ('url' | 'code') | null;
+          url?: string | null;
+          caption?: string | null;
+          code?: string | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'external-embed';
+      }
+  )[];
+  slug?: string | null;
+  publishedOn: string;
+  tags: (string | Tag)[];
+  authors?: (string | Author)[] | null;
+  excerpt: string;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
@@ -1725,13 +1753,17 @@ export interface SettingsSite {
           link: {
             type?: ('reference' | 'custom') | null;
             newTab?: boolean | null;
-            reference?: {
-              relationTo: 'RoboshieldPages';
-              value: string | RoboshieldPage;
-            } | null;
+            reference?:
+              | ({
+                  relationTo: 'RoboshieldPages';
+                  value: string | RoboshieldPage;
+                } | null)
+              | ({
+                  relationTo: 'CodeForAfricaPages';
+                  value: string | CodeForAfricaPage;
+                } | null);
             url?: string | null;
             label: string;
-            appearance?: ('default' | 'outline') | null;
           };
           id?: string | null;
         }[]
@@ -1744,13 +1776,17 @@ export interface SettingsSite {
           link: {
             type?: ('reference' | 'custom') | null;
             newTab?: boolean | null;
-            reference?: {
-              relationTo: 'RoboshieldPages';
-              value: string | RoboshieldPage;
-            } | null;
+            reference?:
+              | ({
+                  relationTo: 'RoboshieldPages';
+                  value: string | RoboshieldPage;
+                } | null)
+              | ({
+                  relationTo: 'CodeForAfricaPages';
+                  value: string | CodeForAfricaPage;
+                } | null);
             url?: string | null;
             label: string;
-            appearance?: ('default' | 'outline') | null;
           };
           id?: string | null;
         }[]
@@ -1794,13 +1830,17 @@ export interface SettingsSite {
           link: {
             type?: ('reference' | 'custom') | null;
             newTab?: boolean | null;
-            reference?: {
-              relationTo: 'RoboshieldPages';
-              value: string | RoboshieldPage;
-            } | null;
+            reference?:
+              | ({
+                  relationTo: 'RoboshieldPages';
+                  value: string | RoboshieldPage;
+                } | null)
+              | ({
+                  relationTo: 'CodeForAfricaPages';
+                  value: string | CodeForAfricaPage;
+                } | null);
             url?: string | null;
             label: string;
-            appearance?: ('default' | 'outline') | null;
           };
           id?: string | null;
         }[]
