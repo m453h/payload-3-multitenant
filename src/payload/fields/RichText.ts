@@ -1,5 +1,13 @@
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import {
+  FixedToolbarFeature,
+  HeadingFeature,
+  HorizontalRuleFeature,
+  InlineToolbarFeature,
+  lexicalEditor,
+} from '@payloadcms/richtext-lexical'
+import { Banner } from '@payloadcms/ui'
 import { LexicalRichTextAdapterProvider } from 'node_modules/@payloadcms/richtext-lexical/dist/types'
+import MediaBlock from '../blocks/codeforafrica/MediaBlock'
 
 interface RichTextInput {
   name: string
@@ -27,6 +35,16 @@ export default function richText(input: RichTextInput): RichTextOutput {
     type: 'richText',
     required: input.required ?? false,
     label: capitalizeFirstLetter(input.name) ?? 'Content',
-    editor: lexicalEditor({}),
+    editor: lexicalEditor({
+      features: ({ rootFeatures }) => {
+        return [
+          ...rootFeatures,
+          HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
+          FixedToolbarFeature(),
+          InlineToolbarFeature(),
+          HorizontalRuleFeature(),
+        ]
+      },
+    }),
   }
 }
