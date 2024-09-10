@@ -33,7 +33,9 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
-  globals: {};
+  globals: {
+    'settings-site': SettingsSite;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -846,15 +848,17 @@ export interface Project {
   tagLine: string;
   tag: string | Tag;
   externalLink: {
-    label: string;
-    linkType?: ('custom' | 'internal') | null;
-    doc?: {
-      relationTo: 'RoboshieldPages';
-      value: string | RoboshieldPage;
-    } | null;
-    url?: string | null;
-    href: string;
-    newTab?: boolean | null;
+    link: {
+      type?: ('reference' | 'custom') | null;
+      newTab?: boolean | null;
+      reference?: {
+        relationTo: 'RoboshieldPages';
+        value: string | RoboshieldPage;
+      } | null;
+      url?: string | null;
+      label: string;
+      appearance?: ('default' | 'outline') | null;
+    };
   };
   thumbnail: string | Media;
   badges?:
@@ -882,14 +886,17 @@ export interface Project {
   links?:
     | {
         type: 'source' | 'data';
-        label: string;
-        linkType?: ('custom' | 'internal') | null;
-        doc?: {
-          relationTo: 'RoboshieldPages';
-          value: string | RoboshieldPage;
-        } | null;
-        url?: string | null;
-        href: string;
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'RoboshieldPages';
+            value: string | RoboshieldPage;
+          } | null;
+          url?: string | null;
+          label: string;
+          appearance?: ('default' | 'outline') | null;
+        };
         id?: string | null;
       }[]
     | null;
@@ -1311,7 +1318,6 @@ export interface Post {
 export interface CodeForAfricaPage {
   id: string;
   title: string;
-  fullTitle?: string | null;
   slug?: string | null;
   blocks?:
     | (
@@ -1359,15 +1365,17 @@ export interface CodeForAfricaPage {
             stories: {
               items: (string | Post)[];
               action: {
-                label: string;
-                linkType?: ('custom' | 'internal') | null;
-                doc?: {
-                  relationTo: 'RoboshieldPages';
-                  value: string | RoboshieldPage;
-                } | null;
-                url?: string | null;
-                href: string;
-                newTab?: boolean | null;
+                link: {
+                  type?: ('reference' | 'custom') | null;
+                  newTab?: boolean | null;
+                  reference?: {
+                    relationTo: 'RoboshieldPages';
+                    value: string | RoboshieldPage;
+                  } | null;
+                  url?: string | null;
+                  label: string;
+                  appearance?: ('default' | 'outline') | null;
+                };
               };
             };
             id?: string | null;
@@ -1378,15 +1386,17 @@ export interface CodeForAfricaPage {
             title: string;
             subtitle: string;
             action: {
-              label: string;
-              linkType?: ('custom' | 'internal') | null;
-              doc?: {
-                relationTo: 'RoboshieldPages';
-                value: string | RoboshieldPage;
-              } | null;
-              url?: string | null;
-              href: string;
-              newTab?: boolean | null;
+              link: {
+                type?: ('reference' | 'custom') | null;
+                newTab?: boolean | null;
+                reference?: {
+                  relationTo: 'RoboshieldPages';
+                  value: string | RoboshieldPage;
+                } | null;
+                url?: string | null;
+                label: string;
+                appearance?: ('default' | 'outline') | null;
+              };
             };
             id?: string | null;
             blockName?: string | null;
@@ -1395,15 +1405,17 @@ export interface CodeForAfricaPage {
         | {
             impacts?: (string | Impact)[] | null;
             action: {
-              label: string;
-              linkType?: ('custom' | 'internal') | null;
-              doc?: {
-                relationTo: 'RoboshieldPages';
-                value: string | RoboshieldPage;
-              } | null;
-              url?: string | null;
-              href: string;
-              newTab?: boolean | null;
+              link: {
+                type?: ('reference' | 'custom') | null;
+                newTab?: boolean | null;
+                reference?: {
+                  relationTo: 'RoboshieldPages';
+                  value: string | RoboshieldPage;
+                } | null;
+                url?: string | null;
+                label: string;
+                appearance?: ('default' | 'outline') | null;
+              };
             };
             id?: string | null;
             blockName?: string | null;
@@ -1448,15 +1460,17 @@ export interface CodeForAfricaPage {
             title: string;
             subtitle: string;
             action: {
-              label: string;
-              linkType?: ('custom' | 'internal') | null;
-              doc?: {
-                relationTo: 'RoboshieldPages';
-                value: string | RoboshieldPage;
-              } | null;
-              url?: string | null;
-              href: string;
-              newTab?: boolean | null;
+              link: {
+                type?: ('reference' | 'custom') | null;
+                newTab?: boolean | null;
+                reference?: {
+                  relationTo: 'RoboshieldPages';
+                  value: string | RoboshieldPage;
+                } | null;
+                url?: string | null;
+                label: string;
+                appearance?: ('default' | 'outline') | null;
+              };
             };
             id?: string | null;
             blockName?: string | null;
@@ -1480,15 +1494,17 @@ export interface CodeForAfricaPage {
               [k: string]: unknown;
             };
             action: {
-              label: string;
-              linkType?: ('custom' | 'internal') | null;
-              doc?: {
-                relationTo: 'RoboshieldPages';
-                value: string | RoboshieldPage;
-              } | null;
-              url?: string | null;
-              href: string;
-              newTab?: boolean | null;
+              link: {
+                type?: ('reference' | 'custom') | null;
+                newTab?: boolean | null;
+                reference?: {
+                  relationTo: 'RoboshieldPages';
+                  value: string | RoboshieldPage;
+                } | null;
+                url?: string | null;
+                label: string;
+                appearance?: ('default' | 'outline') | null;
+              };
             };
             image: string | Media;
             id?: string | null;
@@ -1678,6 +1694,120 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "settings-site".
+ */
+export interface SettingsSite {
+  id: string;
+  title: string;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  primaryLogo: string | Media;
+  secondaryLogo?: (string | null) | Media;
+  primaryNavigation?: {
+    menus?:
+      | {
+          link: {
+            type?: ('reference' | 'custom') | null;
+            newTab?: boolean | null;
+            reference?: {
+              relationTo: 'RoboshieldPages';
+              value: string | RoboshieldPage;
+            } | null;
+            url?: string | null;
+            label: string;
+            appearance?: ('default' | 'outline') | null;
+          };
+          id?: string | null;
+        }[]
+      | null;
+    connect?: ('Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack') | null;
+  };
+  secondaryNavigation?: {
+    menus?:
+      | {
+          link: {
+            type?: ('reference' | 'custom') | null;
+            newTab?: boolean | null;
+            reference?: {
+              relationTo: 'RoboshieldPages';
+              value: string | RoboshieldPage;
+            } | null;
+            url?: string | null;
+            label: string;
+            appearance?: ('default' | 'outline') | null;
+          };
+          id?: string | null;
+        }[]
+      | null;
+  };
+  connect: {
+    title: string;
+    links?:
+      | {
+          platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack';
+          url: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  newsletter: {
+    title: string;
+    embedCode: string;
+  };
+  initiative: {
+    title: string;
+    description: {
+      root: {
+        type: string;
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
+    partners?:
+      | {
+          name: string;
+          logo: string | Media;
+          link: {
+            type?: ('reference' | 'custom') | null;
+            newTab?: boolean | null;
+            reference?: {
+              relationTo: 'RoboshieldPages';
+              value: string | RoboshieldPage;
+            } | null;
+            url?: string | null;
+            label: string;
+            appearance?: ('default' | 'outline') | null;
+          };
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
