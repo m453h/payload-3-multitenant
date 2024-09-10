@@ -2,9 +2,21 @@ import { deepmerge } from '@mui/utils'
 
 import { Field } from 'payload'
 
-type LinkType = (options?: { disableLabel?: boolean; overrides?: Record<string, unknown> }) => Field
+type LinkType = (options?: {
+  disableLabel?: boolean
+  defaultValue?: string
+  disableLinkTypeSelection?: boolean
+  disableOpenInNewTab?: boolean
+  overrides?: Record<string, unknown>
+}) => Field
 
-const link: LinkType = ({ disableLabel = false, overrides = {} } = {}) => {
+const link: LinkType = ({
+  disableLabel = false,
+  defaultValue = 'internal',
+  disableLinkTypeSelection = false,
+  disableOpenInNewTab = false,
+  overrides = {},
+} = {}) => {
   const linkResult: Field = {
     name: 'link',
     type: 'group',
@@ -21,29 +33,19 @@ const link: LinkType = ({ disableLabel = false, overrides = {} } = {}) => {
             admin: {
               layout: 'horizontal',
               width: '50%',
+              hidden: disableLinkTypeSelection,
             },
-            defaultValue: 'reference',
+            defaultValue,
             options: [
               {
                 label: 'Internal link',
-                value: 'reference',
+                value: 'internal',
               },
               {
                 label: 'Custom URL',
                 value: 'custom',
               },
             ],
-          },
-          {
-            name: 'newTab',
-            type: 'checkbox',
-            admin: {
-              style: {
-                alignSelf: 'flex-end',
-              },
-              width: '50%',
-            },
-            label: 'Open in new tab',
           },
         ],
       },
@@ -52,10 +54,10 @@ const link: LinkType = ({ disableLabel = false, overrides = {} } = {}) => {
 
   const linkTypes: Field[] = [
     {
-      name: 'reference',
+      name: 'internal',
       type: 'relationship',
       admin: {
-        condition: (_, siblingData) => siblingData?.type === 'reference',
+        condition: (_, siblingData) => siblingData?.type === 'internal',
       },
       label: 'Document to link to',
       maxDepth: 1,
@@ -99,6 +101,23 @@ const link: LinkType = ({ disableLabel = false, overrides = {} } = {}) => {
     })
   } else {
     linkResult.fields = [...linkResult.fields, ...linkTypes]
+  }
+
+  if (!disableOpenInNewTab) {
+    linkResult.fields.push({
+      type: 'row',
+      fields: [
+        {
+          name: 'newTab',
+          label: {
+            en: 'Open in new tab',
+            fr: 'Ouvrir dans un nouvel onglet',
+            pt: 'Abrir num novo separador',
+          },
+          type: 'checkbox',
+        },
+      ],
+    })
   }
 
   return deepmerge(linkResult, overrides)

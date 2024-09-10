@@ -849,9 +849,8 @@ export interface Project {
   tag: string | Tag;
   externalLink: {
     link: {
-      type?: ('reference' | 'custom') | null;
-      newTab?: boolean | null;
-      reference?:
+      type?: ('internal' | 'custom') | null;
+      internal?:
         | ({
             relationTo: 'RoboshieldPages';
             value: string | RoboshieldPage;
@@ -862,6 +861,7 @@ export interface Project {
           } | null);
       url?: string | null;
       label: string;
+      newTab?: boolean | null;
     };
   };
   thumbnail: string | Media;
@@ -891,9 +891,8 @@ export interface Project {
     | {
         type: 'source' | 'data';
         link: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?:
+          type?: ('internal' | 'custom') | null;
+          internal?:
             | ({
                 relationTo: 'RoboshieldPages';
                 value: string | RoboshieldPage;
@@ -1314,9 +1313,8 @@ export interface CodeForAfricaPage {
               items: (string | Post)[];
               action: {
                 link: {
-                  type?: ('reference' | 'custom') | null;
-                  newTab?: boolean | null;
-                  reference?:
+                  type?: ('internal' | 'custom') | null;
+                  internal?:
                     | ({
                         relationTo: 'RoboshieldPages';
                         value: string | RoboshieldPage;
@@ -1327,6 +1325,7 @@ export interface CodeForAfricaPage {
                       } | null);
                   url?: string | null;
                   label: string;
+                  newTab?: boolean | null;
                 };
               };
             };
@@ -1339,9 +1338,8 @@ export interface CodeForAfricaPage {
             subtitle: string;
             action: {
               link: {
-                type?: ('reference' | 'custom') | null;
-                newTab?: boolean | null;
-                reference?:
+                type?: ('internal' | 'custom') | null;
+                internal?:
                   | ({
                       relationTo: 'RoboshieldPages';
                       value: string | RoboshieldPage;
@@ -1352,6 +1350,7 @@ export interface CodeForAfricaPage {
                     } | null);
                 url?: string | null;
                 label: string;
+                newTab?: boolean | null;
               };
             };
             id?: string | null;
@@ -1362,9 +1361,8 @@ export interface CodeForAfricaPage {
             impacts?: (string | Impact)[] | null;
             action: {
               link: {
-                type?: ('reference' | 'custom') | null;
-                newTab?: boolean | null;
-                reference?:
+                type?: ('internal' | 'custom') | null;
+                internal?:
                   | ({
                       relationTo: 'RoboshieldPages';
                       value: string | RoboshieldPage;
@@ -1375,6 +1373,7 @@ export interface CodeForAfricaPage {
                     } | null);
                 url?: string | null;
                 label: string;
+                newTab?: boolean | null;
               };
             };
             id?: string | null;
@@ -1421,9 +1420,8 @@ export interface CodeForAfricaPage {
             subtitle: string;
             action: {
               link: {
-                type?: ('reference' | 'custom') | null;
-                newTab?: boolean | null;
-                reference?:
+                type?: ('internal' | 'custom') | null;
+                internal?:
                   | ({
                       relationTo: 'RoboshieldPages';
                       value: string | RoboshieldPage;
@@ -1434,6 +1432,7 @@ export interface CodeForAfricaPage {
                     } | null);
                 url?: string | null;
                 label: string;
+                newTab?: boolean | null;
               };
             };
             id?: string | null;
@@ -1459,9 +1458,8 @@ export interface CodeForAfricaPage {
             };
             action: {
               link: {
-                type?: ('reference' | 'custom') | null;
-                newTab?: boolean | null;
-                reference?:
+                type?: ('internal' | 'custom') | null;
+                internal?:
                   | ({
                       relationTo: 'RoboshieldPages';
                       value: string | RoboshieldPage;
@@ -1472,6 +1470,7 @@ export interface CodeForAfricaPage {
                     } | null);
                 url?: string | null;
                 label: string;
+                newTab?: boolean | null;
               };
             };
             image: string | Media;
@@ -1751,9 +1750,8 @@ export interface SettingsSite {
     menus?:
       | {
           link: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
+            type?: ('internal' | 'custom') | null;
+            internal?:
               | ({
                   relationTo: 'RoboshieldPages';
                   value: string | RoboshieldPage;
@@ -1774,9 +1772,8 @@ export interface SettingsSite {
     menus?:
       | {
           link: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
+            type?: ('internal' | 'custom') | null;
+            internal?:
               | ({
                   relationTo: 'RoboshieldPages';
                   value: string | RoboshieldPage;
@@ -1828,9 +1825,8 @@ export interface SettingsSite {
           name: string;
           logo: string | Media;
           link: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
+            type?: ('internal' | 'custom') | null;
+            internal?:
               | ({
                   relationTo: 'RoboshieldPages';
                   value: string | RoboshieldPage;
