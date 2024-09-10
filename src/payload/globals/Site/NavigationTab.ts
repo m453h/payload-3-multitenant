@@ -4,7 +4,7 @@ import linkArray from '@/custom-fields/links/linkArray'
 import { socialMediaOptions } from '@/custom-fields/socialLinks'
 
 const linkField = link({
-  disableOpenInNewTab: true,
+  disableOpenInNewTab: false,
 })
 
 const NavigationTab: Tab = {

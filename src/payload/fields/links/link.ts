@@ -28,12 +28,21 @@ const link: LinkType = ({
       {
         type: 'row',
         fields: [
+          ...(!disableLabel
+            ? [
+                {
+                  name: 'label',
+                  type: 'text',
+                  label: 'Label',
+                  required: true,
+                } as Field,
+              ]
+            : []),
           {
             name: 'type',
             type: 'radio',
             admin: {
               layout: 'horizontal',
-              width: '50%',
               hidden: disableLinkTypeSelection,
             },
             defaultValue,
@@ -48,60 +57,45 @@ const link: LinkType = ({
               },
             ],
           },
+          {
+            name: 'internal',
+            type: 'relationship',
+            admin: {
+              condition: (_, siblingData) => siblingData?.type === 'internal',
+            },
+            label: 'Document to link to',
+            maxDepth: 1,
+            relationTo: ['RoboshieldPages', 'CodeForAfricaPages'],
+            required: true,
+          },
+          {
+            name: 'url',
+            type: 'text',
+            admin: {
+              condition: (_, siblingData) => siblingData?.type === 'custom',
+            },
+            label: 'Custom URL',
+            required: true,
+          },
         ],
       },
     ],
   }
 
-  const linkTypes: Field[] = [
-    {
-      name: 'internal',
-      type: 'relationship',
-      admin: {
-        condition: (_, siblingData) => siblingData?.type === 'internal',
-      },
-      label: 'Document to link to',
-      maxDepth: 1,
-      relationTo: ['RoboshieldPages', 'CodeForAfricaPages'],
-      required: true,
-    },
-    {
-      name: 'url',
-      type: 'text',
-      admin: {
-        condition: (_, siblingData) => siblingData?.type === 'custom',
-      },
-      label: 'Custom URL',
-      required: true,
-    },
-  ]
+  let labelFields: any = []
 
   if (!disableLabel) {
-    linkTypes.map((linkType) => ({
-      ...linkType,
-      admin: {
-        ...linkType.admin,
-        width: '50%',
-      },
-    }))
-
-    linkResult.fields.push({
+    labelFields.push({
       type: 'row',
       fields: [
-        ...linkTypes,
         {
           name: 'label',
           type: 'text',
-          admin: {
-            width: '50%',
-          },
           label: 'Label',
           required: true,
         },
       ],
     })
-  } else {
-    linkResult.fields = [...linkResult.fields, ...linkTypes]
   }
 
   if (!disableOpenInNewTab) {

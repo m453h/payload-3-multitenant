@@ -849,6 +849,7 @@ export interface Project {
   tag: string | Tag;
   externalLink: {
     link: {
+      label: string;
       type?: ('internal' | 'custom') | null;
       internal?:
         | ({
@@ -860,7 +861,6 @@ export interface Project {
             value: string | CodeForAfricaPage;
           } | null);
       url?: string | null;
-      label: string;
       newTab?: boolean | null;
     };
   };
@@ -891,6 +891,7 @@ export interface Project {
     | {
         type: 'source' | 'data';
         link: {
+          label: string;
           type?: ('internal' | 'custom') | null;
           internal?:
             | ({
@@ -902,7 +903,6 @@ export interface Project {
                 value: string | CodeForAfricaPage;
               } | null);
           url?: string | null;
-          label: string;
         };
         id?: string | null;
       }[]
@@ -1313,6 +1313,7 @@ export interface CodeForAfricaPage {
               items: (string | Post)[];
               action: {
                 link: {
+                  label: string;
                   type?: ('internal' | 'custom') | null;
                   internal?:
                     | ({
@@ -1324,7 +1325,6 @@ export interface CodeForAfricaPage {
                         value: string | CodeForAfricaPage;
                       } | null);
                   url?: string | null;
-                  label: string;
                   newTab?: boolean | null;
                 };
               };
@@ -1338,6 +1338,7 @@ export interface CodeForAfricaPage {
             subtitle: string;
             action: {
               link: {
+                label: string;
                 type?: ('internal' | 'custom') | null;
                 internal?:
                   | ({
@@ -1349,7 +1350,6 @@ export interface CodeForAfricaPage {
                       value: string | CodeForAfricaPage;
                     } | null);
                 url?: string | null;
-                label: string;
                 newTab?: boolean | null;
               };
             };
@@ -1361,6 +1361,7 @@ export interface CodeForAfricaPage {
             impacts?: (string | Impact)[] | null;
             action: {
               link: {
+                label: string;
                 type?: ('internal' | 'custom') | null;
                 internal?:
                   | ({
@@ -1372,7 +1373,6 @@ export interface CodeForAfricaPage {
                       value: string | CodeForAfricaPage;
                     } | null);
                 url?: string | null;
-                label: string;
                 newTab?: boolean | null;
               };
             };
@@ -1420,6 +1420,7 @@ export interface CodeForAfricaPage {
             subtitle: string;
             action: {
               link: {
+                label: string;
                 type?: ('internal' | 'custom') | null;
                 internal?:
                   | ({
@@ -1431,7 +1432,6 @@ export interface CodeForAfricaPage {
                       value: string | CodeForAfricaPage;
                     } | null);
                 url?: string | null;
-                label: string;
                 newTab?: boolean | null;
               };
             };
@@ -1458,6 +1458,7 @@ export interface CodeForAfricaPage {
             };
             action: {
               link: {
+                label: string;
                 type?: ('internal' | 'custom') | null;
                 internal?:
                   | ({
@@ -1469,7 +1470,6 @@ export interface CodeForAfricaPage {
                       value: string | CodeForAfricaPage;
                     } | null);
                 url?: string | null;
-                label: string;
                 newTab?: boolean | null;
               };
             };
@@ -1750,6 +1750,7 @@ export interface SettingsSite {
     menus?:
       | {
           link: {
+            label: string;
             type?: ('internal' | 'custom') | null;
             internal?:
               | ({
@@ -1761,7 +1762,7 @@ export interface SettingsSite {
                   value: string | CodeForAfricaPage;
                 } | null);
             url?: string | null;
-            label: string;
+            newTab?: boolean | null;
           };
           id?: string | null;
         }[]
@@ -1772,6 +1773,7 @@ export interface SettingsSite {
     menus?:
       | {
           link: {
+            label: string;
             type?: ('internal' | 'custom') | null;
             internal?:
               | ({
@@ -1783,7 +1785,7 @@ export interface SettingsSite {
                   value: string | CodeForAfricaPage;
                 } | null);
             url?: string | null;
-            label: string;
+            newTab?: boolean | null;
           };
           id?: string | null;
         }[]
@@ -1825,6 +1827,7 @@ export interface SettingsSite {
           name: string;
           logo: string | Media;
           link: {
+            label: string;
             type?: ('internal' | 'custom') | null;
             internal?:
               | ({
@@ -1836,7 +1839,6 @@ export interface SettingsSite {
                   value: string | CodeForAfricaPage;
                 } | null);
             url?: string | null;
-            label: string;
           };
           id?: string | null;
         }[]
