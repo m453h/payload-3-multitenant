@@ -20,6 +20,7 @@ const link: LinkType = ({
   const linkResult: Field = {
     name: 'link',
     type: 'group',
+    label: false,
     admin: {
       hideGutter: true,
     },

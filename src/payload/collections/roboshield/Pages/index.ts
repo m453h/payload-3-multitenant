@@ -1,34 +1,32 @@
-import type { CollectionConfig } from "payload";
+import type { CollectionConfig } from 'payload'
 
-import { tenant } from "@/payload/fields/tenant";
-import { loggedIn } from "@/payload/access/loggedIn";
-import { tenantAdmins } from "@/payload/access/tenantAdmins";
-import { tenants } from "@/payload/access/tenants";
-import formatSlug from "@/payload/hooks/formatSlug";
+import { tenant } from '@/payload/fields/tenant'
+import { loggedIn } from '@/payload/access/loggedIn'
+import { tenantAdmins } from '@/payload/access/tenantAdmins'
+import { tenants } from '@/payload/access/tenants'
+import formatSlug from '@/payload/hooks/formatSlug'
 import {
   MetaDescriptionField,
   MetaImageField,
   MetaTitleField,
   OverviewField,
   PreviewField,
-} from '@payloadcms/plugin-seo/fields';
+} from '@payloadcms/plugin-seo/fields'
 
-
-import { PageHeader } from "@/payload/blocks/roboshield/PageHeader";
-import { SiteHero } from "@/payload/blocks/roboshield/SiteHero";
-import { lexicalEditor } from "@payloadcms/richtext-lexical";
-import { Statistics } from "@/payload/blocks/roboshield/Statistics";
-import { Content } from "@/payload/blocks/roboshield/Content";
-import RobotsTxtGenerator from "@/payload/blocks/roboshield/RobotsTxtGenerator";
-import { canRead } from "@/payload/access/roboshield";
-
+import { PageHeader } from '@/payload/blocks/roboshield/PageHeader'
+import { SiteHero } from '@/payload/blocks/roboshield/SiteHero'
+import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { Statistics } from '@/payload/blocks/roboshield/Statistics'
+import { Content } from '@/payload/blocks/roboshield/Content'
+import RobotsTxtGenerator from '@/payload/blocks/roboshield/RobotsTxtGenerator'
+import { canRead } from '@/payload/access/roboshield'
 
 export const Pages: CollectionConfig = {
-  slug: "RoboshieldPages",
+  slug: 'RoboshieldPages',
   admin: {
-    useAsTitle: "title",
-    defaultColumns: ["title", "slug", "updatedAt"],
-    group: "Publications",
+    useAsTitle: 'title',
+    defaultColumns: ['title', 'slug', 'updatedAt'],
+    group: 'Publications',
   },
   access: {
     read: canRead,
@@ -38,20 +36,20 @@ export const Pages: CollectionConfig = {
   },
   fields: [
     {
-      name: "title",
-      type: "text",
+      name: 'title',
+      type: 'text',
       required: true,
     },
     {
-      name: "slug",
-      label: "Slug",
-      type: "text",
+      name: 'slug',
+      label: 'Slug',
+      type: 'text',
       index: true,
       admin: {
-        position: "sidebar",
+        position: 'sidebar',
       },
       hooks: {
-        beforeValidate: [formatSlug("title")],
+        beforeValidate: [formatSlug('title')],
       },
     },
     tenant,
@@ -64,11 +62,11 @@ export const Pages: CollectionConfig = {
               name: 'content',
               type: 'richText',
               // Pass the Lexical editor here and override base settings as necessary
-              editor: lexicalEditor({})
+              editor: lexicalEditor({}),
             },
             {
-              name: "blocks",
-              type: "blocks",
+              name: 'blocks',
+              type: 'blocks',
               blocks: [PageHeader, SiteHero, Content, Statistics, RobotsTxtGenerator],
               localized: true,
               admin: {
@@ -108,4 +106,4 @@ export const Pages: CollectionConfig = {
       ],
     },
   ],
-};
+}

@@ -60,7 +60,7 @@ const Projects: CollectionConfig = {
       },
     }),
     linkGroup({
-      overrides: { name: 'externalLink', label: 'Link', localized: true },
+      overrides: { name: 'externalLink', label: 'Project Link', localized: true },
     }),
     image({
       overrides: {
