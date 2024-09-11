@@ -18,7 +18,6 @@ import OurTeam from '@/payload/blocks/codeforafrica/OurTeam'
 import OurWork from '@/payload/blocks/codeforafrica/OurWork'
 import PageHeader from '@/payload/blocks/codeforafrica/PageHeader'
 import Posts from '@/payload/blocks/codeforafrica/Posts'
-import fullTitle from '@/payload/fields/fullTitle'
 import slug from '@/payload/fields/slug'
 import formatDraftUrl from '@/payload/utilities/formatDraftUrl'
 import { CollectionConfig } from 'node_modules/payload/dist/collections/config/types'
@@ -30,6 +29,10 @@ const Pages: CollectionConfig = {
     read: canRead,
     create: () => true,
     update: () => true,
+  },
+  labels: {
+    singular: 'Page',
+    plural: 'Pages',
   },
   admin: {
     defaultColumns: ['fullTitle', 'updatedAt'],

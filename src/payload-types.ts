@@ -34,7 +34,8 @@ export interface Config {
     defaultIDType: string;
   };
   globals: {
-    'settings-site': SettingsSite;
+    'codeforafrica-site-settings': CodeforafricaSiteSetting;
+    'roboshield-site-settings': RoboshieldSiteSetting;
   };
   locale: null;
   user: User & {
@@ -1724,9 +1725,95 @@ export interface PayloadMigration {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "settings-site".
+ * via the `definition` "codeforafrica-site-settings".
  */
-export interface SettingsSite {
+export interface CodeforafricaSiteSetting {
+  id: string;
+  title: string;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  primaryLogo: string | Media;
+  secondaryLogo?: (string | null) | Media;
+  primaryNavigation?: {
+    menus?:
+      | {
+          link: {
+            label: string;
+            type?: ('internal' | 'custom') | null;
+            internal?:
+              | ({
+                  relationTo: 'RoboshieldPages';
+                  value: string | RoboshieldPage;
+                } | null)
+              | ({
+                  relationTo: 'CodeForAfricaPages';
+                  value: string | CodeForAfricaPage;
+                } | null);
+            url?: string | null;
+            newTab?: boolean | null;
+          };
+          id?: string | null;
+        }[]
+      | null;
+    connect?: ('Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack') | null;
+  };
+  secondaryNavigation?: {
+    menus?:
+      | {
+          link: {
+            label: string;
+            type?: ('internal' | 'custom') | null;
+            internal?:
+              | ({
+                  relationTo: 'RoboshieldPages';
+                  value: string | RoboshieldPage;
+                } | null)
+              | ({
+                  relationTo: 'CodeForAfricaPages';
+                  value: string | CodeForAfricaPage;
+                } | null);
+            url?: string | null;
+            newTab?: boolean | null;
+          };
+          id?: string | null;
+        }[]
+      | null;
+  };
+  connect: {
+    title: string;
+    links?:
+      | {
+          platform: 'Facebook' | 'Twitter' | 'Instagram' | 'Linkedin' | 'Github' | 'Slack';
+          url: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  newsletter: {
+    title: string;
+    embedCode: string;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "roboshield-site-settings".
+ */
+export interface RoboshieldSiteSetting {
   id: string;
   title: string;
   description: {

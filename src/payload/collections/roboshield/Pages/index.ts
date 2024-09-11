@@ -23,10 +23,15 @@ import { canRead } from '@/payload/access/roboshield'
 
 export const Pages: CollectionConfig = {
   slug: 'RoboshieldPages',
+  labels: {
+    singular: 'Page',
+    plural: 'Pages',
+  },
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug', 'updatedAt'],
     group: 'Publications',
+    description: 'RoboShield',
   },
   access: {
     read: canRead,

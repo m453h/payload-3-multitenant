@@ -11,7 +11,6 @@ import { Media } from '@/payload/collections/Media'
 import { Tenants } from '@/payload/collections/Tenants'
 import Pages from '@/payload/collections/codeforafrica/Pages'
 import { Pages as RoboShieldPages } from '@/payload/collections/roboshield/Pages'
-import Site from '@/payload/globals/Site'
 import Authors from './payload/collections/codeforafrica/Authors'
 import GuidingPrinciples from '@/payload/collections/codeforafrica/GuidingPrinciples'
 import Partners from '@/payload/collections/codeforafrica/Partners'
@@ -21,8 +20,10 @@ import Impact from '@/payload/collections/codeforafrica/Impact'
 import Members from '@/payload/collections/codeforafrica/Members'
 import Offices from '@/payload/collections/codeforafrica/Offices'
 import Projects from '@/payload/collections/codeforafrica/Projects'
-import Tags from './payload/collections/codeforafrica/Tags'
-import Teams from './payload/collections/codeforafrica/Teams'
+import Tags from '@/payload/collections/codeforafrica/Tags'
+import Teams from '@/payload/collections/codeforafrica/Teams'
+import CodeforAfricaGlobals from '@/payload/globals/CodeforAfricaGlobals'
+import RoboShieldGlobals from '@/payload/globals/RoboShieldGlobals'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -36,7 +37,6 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  //globals: [Site] as GlobalConfig[],
   collections: [
     Users,
     Media,
@@ -56,11 +56,11 @@ export default buildConfig({
     RoboShieldPages,
   ],
   editor: lexicalEditor(),
+  globals: [CodeforAfricaGlobals, RoboShieldGlobals],
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
-  globals: [Site] as GlobalConfig[],
   db: mongooseAdapter({
     url: DATABASE_URI,
   }),
