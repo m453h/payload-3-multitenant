@@ -9,9 +9,8 @@ import sharp from 'sharp'
 import { Users } from '@/payload/collections/Users'
 import { Media } from '@/payload/collections/Media'
 import { Tenants } from '@/payload/collections/Tenants'
-import  Pages  from '@/payload/collections/codeforafrica/Pages'
+import Pages from '@/payload/collections/codeforafrica/Pages'
 import { Pages as RoboShieldPages } from '@/payload/collections/roboshield/Pages'
-import Site from '@/payload/globals/Site';
 import Authors from './payload/collections/codeforafrica/Authors'
 import GuidingPrinciples from '@/payload/collections/codeforafrica/GuidingPrinciples'
 import Partners from '@/payload/collections/codeforafrica/Partners'
@@ -21,25 +20,28 @@ import Impact from '@/payload/collections/codeforafrica/Impact'
 import Members from '@/payload/collections/codeforafrica/Members'
 import Offices from '@/payload/collections/codeforafrica/Offices'
 import Projects from '@/payload/collections/codeforafrica/Projects'
-import Tags from './payload/collections/codeforafrica/Tags'
-import Teams from './payload/collections/codeforafrica/Teams'
-
-
+import Tags from '@/payload/collections/codeforafrica/Tags'
+import Teams from '@/payload/collections/codeforafrica/Teams'
+import CodeforAfricaGlobals from '@/payload/globals/CodeforAfricaGlobals'
+import RoboShieldGlobals from '@/payload/globals/RoboShieldGlobals'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
-const DATABASE_URI: string = process.env.DATABASE_URI ?? 
-  (() => { throw new Error('DATABASE_URI environment variable is not set') })();
+const DATABASE_URI: string =
+  process.env.DATABASE_URI ??
+  (() => {
+    throw new Error('DATABASE_URI environment variable is not set')
+  })()
 
 export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  //globals: [Site] as GlobalConfig[],
-  collections: [Users, 
-    Media, 
+  collections: [
+    Users,
+    Media,
     Tenants,
-    Authors, 
+    Authors,
     Donors,
     GuidingPrinciples,
     Impact,
@@ -50,10 +52,11 @@ export default buildConfig({
     Posts,
     Tags,
     Teams,
-    Pages, 
-    RoboShieldPages
+    Pages,
+    RoboShieldPages,
   ],
   editor: lexicalEditor(),
+  globals: [CodeforAfricaGlobals, RoboShieldGlobals],
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
@@ -64,9 +67,6 @@ export default buildConfig({
   sharp,
   plugins: [
     // storage-adapter-placeholder
-    seoPlugin({
-      
-     
-    })
+    seoPlugin({}),
   ],
 })
